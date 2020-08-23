@@ -1,0 +1,36 @@
+.tools{
+	position:relative;
+	height:34px;
+}
+.tools .filters{
+	float:left;
+}
+.tools .new{
+	background: url(../images/template/icons/add_24.jpg) no-repeat;
+}
+.tools .edit{
+	background: url(../images/template/icons/edit_24.jpg) no-repeat;
+}
+.tools .delete{
+	background: url(../images/template/icons/delete_24.jpg) no-repeat;
+}
+.tools .permissions{
+	background: url(../images/template/icons/permission_24.jpg) no-repeat;
+}
+.tools .top{
+	background: url(../images/template/icons/top_24.png) no-repeat;
+}
+.tools .down{
+	background: url(../images/template/icons/down_24.png) no-repeat;
+}
+.tools .button{
+	float:right;
+	width:24px;
+	height:24px;
+	margin-left:2px; 
+	margin-right:2px;
+	cursor:pointer;
+}
+.tools .button:hover{
+	background-position:0px -24px;
+}

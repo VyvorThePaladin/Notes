@@ -1,0 +1,388 @@
+html, body{ overflow:auto; }
+body{
+	margin:0; 
+	padding:0;
+	min-width:986px;
+	background:#FFF;
+	color:#000;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+}
+img{ border:0px;}
+h1 {
+	color:#025A8D;
+    font-size: 22px;
+    font-weight: normal;
+	margin:0px;
+}
+h2 {
+	color:#666;
+    font-size: 18px;
+    font-weight: normal;
+	margin:0px;
+}
+h3 {
+	color:#666;
+    font-size: 16px;
+    font-weight: normal;
+	margin:0px;
+}
+h4 {
+	color:#92B22C;
+    font-size: 11px;
+    font-weight:bold;
+	margin:0px;
+}
+legend{
+	color:#025A8D;
+	font-weight:bold;
+}
+p{ margin:0px; padding:0px; border:0px; }
+a{ cursor:pointer; }
+.separator{
+	position:relative;
+	background: url(../images/template/separator.gif) repeat-x;
+	height:1px;
+	margin-top:25px;
+	margin-bottom:25px;
+	clear:both;
+}
+select, input, textarea{
+	border: 1px solid #ACACAC;
+    padding: 3px;
+	margin-left:3px;
+	margin-right:3px;
+}
+textarea{
+	width:100%;
+	height:180px;
+}
+.readonly{
+	background:#EEE;
+}
+.button_form{
+	margin-left:3px;
+	margin-right:3px;
+	position:relative;
+	background:#94B52C;
+	padding:2px 10px 2px 10px;
+	width:100px;
+	border:1px solid #719C27;
+	color:#FFF;
+	border-radius:3px;
+	cursor:pointer;
+	width:auto;
+}
+.button_form2{
+	margin-left:3px;
+	margin-right:3px;
+	position:relative;
+	background:#7D7D7D;
+	padding:2px 10px 2px 10px;
+	width:100px;
+	border:1px solid #666;
+	color:#FFF;
+	border-radius:3px;
+	cursor:pointer;
+	width:auto;
+}
+.button_form3{
+	margin-left:3px;
+	margin-right:3px;
+	position:relative;
+	background:#9D9D9D;
+	padding:2px 5px 2px 5px;
+	width:100px;
+	border:1px solid #888;
+	color:#FFF;
+	border-radius:3px;
+	cursor:pointer;
+	width:auto;
+}
+.button_form:hover{
+	background:#74911E;
+}
+.button_form2:hover{
+	background:#696969;
+}
+.button_form3:hover{
+	background:#888;
+}
+.frame{
+	border:1px solid #CCC;
+	margin-top:7px;
+	padding:20px 15px 20px 15px;
+	border-radius:5px;
+	box-shadow: 0 0 3px rgba(0,0,0, .3);
+}
+.info_message{
+	text-align:center; 
+	font-weight:bold; 
+	background:#FFF4CC; 
+	color:#E79300; 
+	padding:10px 0 10px 0; 
+	border:1px solid #F8E3AC;
+	border-radius:5px;
+}
+.error_message{
+	text-align:center; 
+	font-weight:bold; 
+	background:#FBD3B1; 
+	color:#CE2700; 
+	padding:10px 0 10px 0; 
+	border:1px solid #F5C69A;
+	border-radius:5px;
+}
+/* Init code here */
+/* top */
+	.top{
+		background: url(../images/template/top_bg.jpg) repeat-x;
+		width:100%;
+		height:70px;
+		position:relative;
+	}
+	.top .logo{
+		background: url(../images/template/logo.png) no-repeat;
+		width:156px;
+		height:48px;
+		position:absolute;
+		top:18px;
+		left:18px;
+	}
+	.top .user_info{
+		text-align:right;
+		color:#FFFFFF;
+		font-family:Arial, Helvetica, sans-serif;
+		font-style:italic;
+		font-size:11px;
+		height:49px;
+		position:relative;
+		float:right;
+		margin-top:18px;
+		right:19px;
+	}
+/* menu */
+	.menu{
+		background: url(../images/template/menu_bg.jpg) repeat-x;
+		width:100%;
+		height:37px;
+		position:relative;
+	}
+	.menu .menu_divider{
+		background: url(../images/template/divider.jpg) no-repeat;
+		width:15px;
+		height:37px;
+		float:inherit;
+	}
+	.menu .menu_divider_horizontal{
+		background: url(../images/template/divider_horizontal.gif) repeat-x;
+		width:100%;
+		height:2px;
+	}
+	.menu .left_items{
+		height:37px;
+		position:relative;
+		float:left;
+		left:18px;
+	}
+	.menu .right_items{
+		height:37px;
+		position:relative;
+		float:right;
+		right:18px;
+	}
+		.menu .logout{
+			background: url(../images/template/buttons/logout.jpg) no-repeat center;
+			width:80px;
+			height:37px;
+			float:inherit;
+			cursor:pointer;
+		}
+		.menu .settings{
+			background: url(../images/template/buttons/settings.jpg) no-repeat center;
+			width:90px;
+			height:37px;
+			float:inherit;
+		}
+		.menu .menu_button{
+			font-weight:bold;
+			height:27px;
+			float:inherit;
+			padding-left:10px;
+			padding-right:10px;
+			padding-top:10px;
+			text-align:center;
+			color:#FFF;
+			font-size:12px;
+			cursor:default;
+		}
+		.menu .menu_button a:hover{ color:#FFF; }
+		.menu .menu_button:hover{
+			background: url(../images/template/buttons/menu_default.jpg) no-repeat;
+			background-size:100% 29px;
+			background-position:0px 3px;
+		}
+		.menu .sub_menu_item{
+			margin:0px; padding:0px;
+			padding-top:8px;
+			padding-bottom:8px;
+			padding-left:13px;
+			padding-right:13px;
+			font-weight:bold;
+			color:#FFF;
+		}
+		.menu a .sub_menu_item{
+			cursor:pointer;
+		}
+		.menu .sub_menu_item{
+			cursor:default;
+		}
+		.menu img{
+			margin-right:7px;
+			vertical-align:middle;
+		}
+/* content */
+	.content{
+		background:url(../images/template/content_bg.jpg) repeat-x;
+		padding-left:18px;
+		padding-right:18px;
+		padding-top:28px;
+		padding-bottom:50px;
+	}
+/* footer */
+	.footer{
+		margin-left:18px;
+		margin-right:18px;
+		padding-top:13px;
+		padding-bottom:12px;
+		padding-left:25px;
+		border-top:1px solid #DBDBDB;
+		border-bottom:1px solid #DBDBDB;
+		color:#818181;
+		font-size:10px;
+		background:url(../images/template/icons/logo.jpg) no-repeat;
+		background-position: 0 10px;
+	}
+/* login */
+	.login .login_box{
+		background:url(../images/template/login/login_box_bg.png) no-repeat;
+		width:508px;
+		height:272px;
+		position:absolute;
+		margin-left:50%;
+		left:-254px;
+		top:200px;
+	}
+	.login .logo{
+		background: url(../images/template/logo.png);
+		width:156px;
+		height:48px;
+		position:absolute;
+		margin-left:50%;
+		left:-234px;
+		top:160px;
+	}
+	.login .button_submit{
+		width:73px;
+		height:29px;
+		background: url(../images/template/login/submit_login.gif);
+		border:0px;
+		cursor:pointer;
+	}
+	.login .button_submit:hover{
+		background-position:0px 29px;
+	}
+	.login .table{
+		width:400px;
+		position:relative;
+		top:90px;
+		left:100px;
+	}
+	.login .input{
+		border:0px;
+		width:207px;
+		height:30px;
+		background: url(../images/template/login/input_login.gif) no-repeat;
+		background-size:auto;
+		color:#FFFFFF;
+		padding-left:10px;
+		line-height:30px;
+	}
+	.login .forgot_password{
+		font-size:11px;
+		color:#FFF;
+		text-decoration:none;
+		position:absolute;
+		top:181px;
+		left:273px;
+	}
+	.login a{
+		color:#FFF;
+		cursor:pointer;
+	}
+	.login a:hover{ color:#DDD; }
+	.login .comment{
+		position:absolute;
+		width:100%;
+		text-align:center;
+		top:50px;
+		font-weight:bold;
+	}
+	.login .back_to_login{
+		font-size:11px;
+		color:#FFF;
+		text-decoration:none;
+		position:absolute;
+		top:161px;
+		left:285px;
+	}
+/* Control Panel*/
+	.menuPanel{ width:100%; color:#565656; }
+	.menuPanel a{ color:#025A8D; text-decoration:none }
+	.menuPanel .button{
+		text-align:center; 
+		position:relative; 
+		float:left;
+		width:98px;
+		margin:5px;
+		cursor:pointer;
+	}
+	.menuPanel td{ vertical-align:top; }
+	.menuPanel .imagen{ width:98px; height:98px; overflow:hidden }
+	.menuPanel .imagen:hover{ background-position:0px -98px }
+	.menuPanel .table_manager{ background:url(../images/template/icons/table_manager_98.png) no-repeat }
+	.menuPanel .general_config{ background:url(../images/template/icons/general_config_98.png) no-repeat }
+	.menuPanel .user_manager{ background:url(../images/template/icons/user_manager_98.png) no-repeat }
+	.menuPanel .menu_manager{ background:url(../images/template/icons/menu_manager_98.png) no-repeat }
+	.menuPanel .content_manager{ background:url(../images/template/icons/article_98.png) no-repeat }
+	.menuPanel .help_center{ background:url(../images/template/icons/help_center_98.png) no-repeat }
+	
+	.menuPanel .user_manager{ background:url(../images/template/icons/user_manager_98.png) no-repeat }
+	.menuPanel .user_accounts{ background:url(../images/template/icons/user_accounts_98.png) no-repeat }
+	
+	.menuPanel .menu_item{ background:url(../images/template/icons/menu_manager_98.png) no-repeat }
+	.menuPanel .menus{ background:url(../images/template/icons/menu_types_98.png) no-repeat }
+	
+	.menuPanel .articles{ background:url(../images/template/icons/article_98.png) no-repeat }
+	.menuPanel .categories{ background:url(../images/template/icons/categories_98.png) no-repeat }
+		
+	.menuPanel .related_info_title {
+		background-color:#444;
+		color:#FFFFFF;
+		border-top-left-radius:5px; 
+		border-top-right-radius:5px; 
+		position:relative; 
+		padding:10px;
+		font-size:14px;
+		box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+	}
+	.menuPanel .related_info_description {
+		font-size:11px;
+		border:1px #999 solid;
+		border-bottom-left-radius:5px; 
+		border-bottom-right-radius:5px;
+		position:relative; 
+		padding:10px;
+		box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+	}
+	.menuPanel p{ padding-top:2px; }

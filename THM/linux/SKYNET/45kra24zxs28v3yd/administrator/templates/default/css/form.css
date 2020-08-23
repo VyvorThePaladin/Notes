@@ -1,0 +1,70 @@
+.form{
+	position:relative;
+}
+.form .title{
+	position:relative;
+	height:39px;
+}
+.form .number2{
+	height: 28px;
+	text-align: center;
+    width: 18px auto;
+	float:left;
+	padding-top:11px;
+	font-weight:bold;
+	color:#94B52C;
+}
+.form .text{
+	background: #777 url(../images/template/form/title.gif) no-repeat;
+	height:28px;
+	color:#FFF;
+	font-size:13px;
+	font-weight:bold;
+	padding-top:11px;
+	padding-left:20px;
+	padding-right:10px;
+	float:left;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.form .name{
+	height:28px;
+	color:#025A8D;
+	font-size:13px;
+	font-weight:bold;
+	padding-top:11px;
+	padding-left:10px;
+	padding-right:10px;
+	float:left;
+}
+.form td{
+	padding-bottom:5px;
+	padding-left:10px;
+	padding-right:10px;
+	font-size:11px;
+	font:Tahoma, Geneva, sans-serif;
+	color:#444;
+	font-weight:bold;
+	vertical-align:central;
+}
+.form th{
+	background: url(../images/template/datagrid/header_bg.jpg) repeat-x;
+	text-align:left;
+	vertical-align:middle;
+	border-left:1px solid #FFF;
+	color:#FFF;
+	padding:10px 10px 10px 10px; 
+	border-radius:5px;
+	font-weight:normal;
+}
+.form label{
+	font-weight:normal;
+}
+.form label.error {
+	color: #FF0000;
+	font-style: italic
+}
+.form input.error { 
+	border: 1px solid #FF0000;
+	background:#FFF4F4;
+}

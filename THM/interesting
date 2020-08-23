@@ -1,0 +1,4 @@
+find / -xdev -type f -print0 2>/dev/null | xargs -0 grep -E '^[a-z0-9]{32}$' 2>/dev/null
+
+arp-scan --interface=eth0 --localnet
+

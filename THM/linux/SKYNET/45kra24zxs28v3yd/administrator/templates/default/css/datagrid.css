@@ -1,0 +1,87 @@
+.datagrid{
+	position:relative; clear:both;
+	border:1px solid #D2D2D2;
+	border-radius:5px;
+}
+.datagrid .header{
+	background: url(../images/template/datagrid/header_bg.jpg) repeat-x;
+	text-align:left;
+	padding-left:10px; padding-right:10px;
+	vertical-align:middle;
+	border-left:1px solid #333;
+	height:50px;
+	color:#FFF;
+}
+.datagrid .select{
+	width:34px;
+	text-align:center;
+	border-left:0px;
+}
+.datagrid .id{
+	width:34px;
+}
+.datagrid td{
+	border-left:1px solid #D2D2D2;
+	padding: 5px 10px 5px 10px;
+	border-top:1px solid #D2D2D2;
+}
+.datagrid .grey{
+	background:#EFEFEF;
+}
+.datagrid a{
+	color:#FFF;
+	text-decoration:none;
+}
+.datagrid td a{
+	color:#025A8D;
+	text-decoration:none;
+}
+.datagrid td a:hover{
+	text-decoration:underline;
+}
+.paginator{
+	font-family:Arial, Helvetica, sans-serif;
+	padding:10px 0px 10px 0px;
+	float:right;
+}
+.paginator li{ 
+	list-style-position:outside;
+	float:left;
+	margin-left:3px;
+}
+.paginator ul{ 
+	list-style-type:none; 
+	list-style:none;
+	display: inline;
+	border:0px; padding:0px; margin:0px;
+}
+
+.paginator .paging_far_left{
+	width:24px;
+	height:24px;
+	background: url(../images/template/datagrid/paging_far_left.gif) no-repeat;
+	cursor:pointer;
+}
+.paginator .paging_left{
+	width:24px;
+	height:24px;
+	background: url(../images/template/datagrid/paging_left.gif) no-repeat;
+	cursor:pointer;
+}
+.paginator .paging_far_right{
+	width:24px;
+	height:24px;
+	background: url(../images/template/datagrid/paging_far_right.gif) no-repeat;
+	cursor:pointer;
+}
+.paginator .paging_right{
+	width:24px;
+	height:24px;
+	background: url(../images/template/datagrid/paging_right.gif) no-repeat;
+	cursor:pointer;
+}
+.paginator .current_page{
+	vertical-align:central middle;
+	line-height: 16px;
+	padding: 4px 10px 0px 10px;
+}

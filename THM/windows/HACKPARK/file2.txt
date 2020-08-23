@@ -1,0 +1,1589 @@
+            *((,.,/((((((((((((((((((((/,  */               
+     ,/*,..*(((((((((((((((((((((((((((((((((,           
+   ,*/((((((((((((((((((/,  .*//((//**, .*((((((*       
+   ((((((((((((((((* *****,,,/########## .(* ,((((((   
+   (((((((((((/* ******************/####### .(. ((((((
+   ((((((..******************/@@@@@/***/######* /((((((
+   ,,..**********************@@@@@@@@@@(***,#### ../(((((
+   , ,**********************#@@@@@#@@@@*********##((/ /((((
+   ..(((##########*********/#@@@@@@@@@/*************,,..((((
+   .(((################(/******/@@@@@#****************.. /((
+   .((########################(/************************..*(
+   .((#############################(/********************.,(
+   .((##################################(/***************..(
+   .((######################################(************..(
+   .((######(,.***.,(###################(..***(/*********..(
+  .((######*(#####((##################((######/(********..(
+   .((##################(/**********(################(**...(
+   .(((####################/*******(###################.((((  
+   .(((((############################################/  /((
+   ..(((((#########################################(..(((((.
+   ....(((((#####################################( .((((((.
+   ......(((((#################################( .(((((((.
+   (((((((((. ,(############################(../(((((((((.
+       (((((((((/,  ,####################(/..((((((((((.
+             (((((((((/,.  ,*//////*,. ./(((((((((((.
+                (((((((((((((((((((((((((((/"
+                       by carlospolop
+ECHO is off.
+Advisory: winpeas should be used for authorized penetration testing and/or educational purposes only.Any misuse of this software will not be the responsibility of the author or of any other collaborator. Use it at your own networks and/or with the network owner's permission.
+ECHO is off.
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [*] BASIC SYSTEM INFO <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] WINDOWS OS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Check for vulnerabilities for the OS version with the applied patches
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#kernel-exploits
+
+Host Name:                 HACKPARK
+OS Name:                   Microsoft Windows Server 2012 R2 Standard Evaluation
+OS Version:                6.3.9600 N/A Build 9600
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Server
+OS Build Type:             Multiprocessor Free
+Registered Owner:          Windows User
+Registered Organization:   
+Product ID:                00252-10000-00000-AA228
+Original Install Date:     8/3/2019, 10:43:23 AM
+System Boot Time:          5/28/2020, 5:16:20 PM
+System Manufacturer:       Xen
+System Model:              HVM domU
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: Intel64 Family 6 Model 79 Stepping 1 GenuineIntel ~2300 Mhz
+BIOS Version:              Xen 4.2.amazon, 8/24/2006
+Windows Directory:         C:\Windows
+System Directory:          C:\Windows\system32
+Boot Device:               \Device\HarddiskVolume1
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+Time Zone:                 (UTC-08:00) Pacific Time (US & Canada)
+Total Physical Memory:     4,096 MB
+Available Physical Memory: 3,111 MB
+Virtual Memory: Max Size:  5,504 MB
+Virtual Memory: Available: 4,413 MB
+Virtual Memory: In Use:    1,091 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    WORKGROUP
+Logon Server:              \\HACKPARK
+Hotfix(s):                 8 Hotfix(s) Installed.
+                           [01]: KB2919355
+                           [02]: KB2919442
+                           [03]: KB2937220
+                           [04]: KB2938772
+                           [05]: KB2939471
+                           [06]: KB2949621
+                           [07]: KB3035131
+                           [08]: KB3060716
+Network Card(s):           1 NIC(s) Installed.
+                           [01]: AWS PV Network Device
+                                 Connection Name: Ethernet 2
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     10.10.0.1
+                                 IP address(es)
+                                 [01]: 10.10.181.120
+                                 [02]: fe80::b0da:cf9:7ea2:b8e
+Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed.
+
+Caption                                     Description      HotFixID   InstalledOn  
+http://support.microsoft.com/?kbid=2919355  Update           KB2919355  3/21/2014    
+http://support.microsoft.com/?kbid=2919442  Update           KB2919442  3/21/2014    
+http://support.microsoft.com/?kbid=2937220  Update           KB2937220  3/21/2014    
+http://support.microsoft.com/?kbid=2938772  Update           KB2938772  3/21/2014    
+http://support.microsoft.com/?kbid=2939471  Update           KB2939471  3/21/2014    
+http://support.microsoft.com/?kbid=2949621  Hotfix           KB2949621  3/21/2014    
+http://support.microsoft.com/?kbid=3035131  Security Update  KB3035131  8/5/2019     
+http://support.microsoft.com/?kbid=3060716  Security Update  KB3060716  8/5/2019     
+
+
+
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] DATE and TIME <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] You may need to adjust your local date/time to exploit some vulnerability
+Thu 05/28/2020 
+05:50 PM
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Audit Settings <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Check what is being logged
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] WEF Settings <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Check where are being sent the logs
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] LAPS installed? <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Check what is being logged
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] LSA protection? <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Active if "1"
+
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Credential Guard? <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Active if "1" or "2"
+
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] WDigest? <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Plain-text creds in memory if "1"
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Number of cached creds <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] You need System to extract them
+
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] UAC Settings <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] If the results read ENABLELUA REG_DWORD 0x1, part or all of the UAC components are on
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#basic-uac-bypass-full-file-system-access
+
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System
+    EnableLUA    REG_DWORD    0x1
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Registered Anti-Virus(AV) <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+
+
+Checking for defender whitelisted PATHS
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] PS settings <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+PowerShell v2 Version:
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\1\PowerShellEngine
+    PowerShellVersion    REG_SZ    2.0
+
+PowerShell v5 Version:
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PowerShell\3\PowerShellEngine
+    PowerShellVersion    REG_SZ    4.0
+
+Transcriptions Settings:
+Module logging settings:
+Scriptblog logging settings:
+
+PS default transcript history
+
+Checking PS history file
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] MOUNTED DISKS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Maybe you find something interesting
+Caption  
+C:       
+
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] ENVIRONMENT <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Interesting information?
+ALLUSERSPROFILE=C:\ProgramData
+APPDATA=C:\Users\Administrator\AppData\Roaming
+CommonProgramFiles=C:\Program Files (x86)\Common Files
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+CommonProgramW6432=C:\Program Files\Common Files
+COMPUTERNAME=HACKPARK
+ComSpec=C:\Windows\system32\cmd.exe
+expl=no
+FP_NO_HOST_CHECK=NO
+HOMEDRIVE=C:
+HOMEPATH=\Users\Administrator
+LOCALAPPDATA=C:\Users\Administrator\AppData\Local
+LOGONSERVER=\\HACKPARK
+long=no
+NUMBER_OF_PROCESSORS=2
+OS=Windows_NT
+Path=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE=x86
+PROCESSOR_ARCHITEW6432=AMD64
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 79 Stepping 1, GenuineIntel
+PROCESSOR_LEVEL=6
+PROCESSOR_REVISION=4f01
+ProgramData=C:\ProgramData
+ProgramFiles=C:\Program Files (x86)
+ProgramFiles(x86)=C:\Program Files (x86)
+ProgramW6432=C:\Program Files
+PROMPT=$P$G
+PSModulePath=C:\Windows\system32\WindowsPowerShell\v1.0\Modules\
+PUBLIC=C:\Users\Public
+SESSIONNAME=Console
+SystemDrive=C:
+SystemRoot=C:\Windows
+TEMP=C:\Users\ADMINI~1\AppData\Local\Temp\1
+TMP=C:\Users\ADMINI~1\AppData\Local\Temp\1
+USERDOMAIN=HACKPARK
+USERDOMAIN_ROAMINGPROFILE=HACKPARK
+USERNAME=Administrator
+USERPROFILE=C:\Users\Administrator
+windir=C:\Windows
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] INSTALLED SOFTWARE <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Some weird software? Check for vulnerabilities in unknow software installed
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#software
+Amazon
+Common Files
+Common Files
+Internet Explorer
+Internet Explorer
+Microsoft.NET
+SystemScheduler
+Windows Mail
+Windows Mail
+Windows NT
+Windows NT
+WindowsPowerShell
+WindowsPowerShell
+    InstallLocation    REG_SZ    C:\Program Files (x86)\SystemScheduler\
+    InstallLocation    REG_SZ    C:\Program Files (x86)\SystemScheduler\
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Remote Desktop Credentials Manager <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#remote-desktop-credential-manager
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] WSUS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] You can inject 'fake' updates into non-SSL WSUS traffic (WSUXploit)
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#wsus
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] RUNNING PROCESSES <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Something unexpected is running? Check for vulnerabilities
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#running-processes
+
+Image Name                     PID Services                                    
+========================= ======== ============================================
+System Idle Process              0 N/A                                         
+System                           4 N/A                                         
+smss.exe                       372 N/A                                         
+csrss.exe                      520 N/A                                         
+csrss.exe                      576 N/A                                         
+wininit.exe                    584 N/A                                         
+winlogon.exe                   612 N/A                                         
+services.exe                   668 N/A                                         
+lsass.exe                      680 SamSs, VaultSvc                             
+svchost.exe                    744 BrokerInfrastructure, DcomLaunch, LSM,      
+                                   PlugPlay, Power, SystemEventsBroker         
+svchost.exe                    788 RpcEptMapper, RpcSs                         
+svchost.exe                    868 Dhcp, EventLog, lmhosts, Wcmsvc             
+dwm.exe                        888 N/A                                         
+svchost.exe                    920 CertPropSvc, DsmSvc, gpsvc, iphlpsvc,       
+                                   LanmanServer, ProfSvc, Schedule, SENS,      
+                                   SessionEnv, ShellHWDetection, Themes,       
+                                   Winmgmt                                     
+svchost.exe                    944 EventSystem, FontCache, netprofm, nsi,      
+                                   W32Time, WinHttpAutoProxySvc                
+svchost.exe                    356 CryptSvc, Dnscache, LanmanWorkstation,      
+                                   NlaSvc, WinRM                               
+svchost.exe                   1020 BFE, DPS, MpsSvc                            
+spoolsv.exe                   1128 Spooler                                     
+amazon-ssm-agent.exe          1176 AmazonSSMAgent                              
+svchost.exe                   1220 AppHostSvc                                  
+LiteAgent.exe                 1260 AWSLiteAgent                                
+svchost.exe                   1340 TrkWks, UALSVC, UmRdpService                
+svchost.exe                   1384 W3SVC, WAS                                  
+WService.exe                  1428 WindowsScheduler                            
+wlms.exe                      1544 WLMS                                        
+WScheduler.exe                1552 N/A                                         
+Ec2Config.exe                 1576 Ec2Config                                   
+svchost.exe                   1880 TermService                                 
+sppsvc.exe                    1932 sppsvc                                      
+vds.exe                       1112 vds                                         
+WmiPrvSE.exe                  2280 N/A                                         
+taskhostex.exe                2524 N/A                                         
+explorer.exe                  2600 N/A                                         
+SppExtComObj.Exe              3056 N/A                                         
+ServerManager.exe             2024 N/A                                         
+WScheduler.exe                2120 N/A                                         
+w3wp.exe                      2780 N/A                                         
+msdtc.exe                     1516 MSDTC                                       
+cmd.exe                       2904 N/A                                         
+conhost.exe                    908 N/A                                         
+shell.exe                     2172 N/A                                         
+Message.exe                   2644 N/A                                         
+rundll32.exe                  1856 N/A                                         
+Message.exe                   2684 N/A                                         
+Message.exe                    848 N/A                                         
+Message.exe                    108 N/A                                         
+Message.exe                   1364 N/A                                         
+Message.exe                   2880 N/A                                         
+Message.exe                   1952 N/A                                         
+Message.exe                   2860 N/A                                         
+Message.exe                    952 N/A                                         
+Message.exe                    468 N/A                                         
+Message.exe                   2200 N/A                                         
+Message.exe                   2268 N/A                                         
+cmd.exe                       2608 N/A                                         
+conhost.exe                    728 N/A                                         
+Message.exe                   3048 N/A                                         
+rundll32.exe                  1336 N/A                                         
+WmiPrvSE.exe                  2544 N/A                                         
+TrustedInstaller.exe          2744 TrustedInstaller                            
+TiWorker.exe                  2300 N/A                                         
+tasklist.exe                  2972 N/A                                         
+
+[i] Checking file permissions of running processes (File backdooring - maybe the same files start automatically when Administrator logs in)
+C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe NT AUTHORITY\SYSTEM:(I)(F)
+                                                 BUILTIN\Administrators:(I)(F)
+
+C:\Program Files\Amazon\XenTools\LiteAgent.exe NT AUTHORITY\SYSTEM:(I)(F)
+                                               BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\WService.exe Everyone:(I)(M)
+                                  BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\WScheduler.exe Everyone:(I)(M)
+                                    BUILTIN\Administrators:(I)(F)
+
+C:\Program Files\Amazon\Ec2ConfigService\Ec2Config.exe NT AUTHORITY\SYSTEM:(I)(F)
+                                                       BUILTIN\Administrators:(I)(F)
+
+C:\Windows\Explorer.EXE NT SERVICE\TrustedInstaller:(F)
+
+C:\Program Files (x86)\SystemScheduler\WScheduler.exe Everyone:(I)(M)
+                                                      BUILTIN\Administrators:(I)(F)
+
+C:\Windows\Temp\shell.exe NT AUTHORITY\SYSTEM:(I)(S,RD)
+                          BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\Windows\SysWOW64\rundll32.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\Windows\SysWOW64\cmd.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\PROGRA~2\SYSTEM~1\Message.exe Everyone:(I)(M)
+                                 BUILTIN\Administrators:(I)(F)
+
+C:\Windows\SysWOW64\rundll32.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\sysWOW64\wbem\wmiprvse.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\servicing\TrustedInstaller.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\winsxs\amd64_microsoft-windows-servicingstack_31bf3856ad364e35_6.3.9600.17031_none_fa50b3979b1bcb4a\TiWorker.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\SysWOW64\cmd.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\SysWOW64\Wbem\WMIC.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\SysWOW64\find.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\SysWOW64\find.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\SysWOW64\find.exe NT SERVICE\TrustedInstaller:(F)
+
+
+[i] Checking directory permissions of running processes (DLL injection)
+C:\Program Files\Amazon\SSM\ NT SERVICE\TrustedInstaller:(I)(F)
+                             BUILTIN\Administrators:(I)(F)
+                             BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\Program Files\Amazon\Xentools\ NT SERVICE\TrustedInstaller:(I)(F)
+                                  BUILTIN\Administrators:(I)(F)
+                                  BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\Program Files\Amazon\Ec2ConfigService\ NT SERVICE\TrustedInstaller:(I)(F)
+                                          BUILTIN\Administrators:(I)(F)
+                                          BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\Windows\ NT SERVICE\TrustedInstaller:(F)
+            BUILTIN\Administrators:(M)
+            BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\Program Files (x86)\SystemScheduler\ Everyone:(OI)(CI)(M)
+                                        BUILTIN\Administrators:(I)(F)
+                                        BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\Windows\Temp\ NT AUTHORITY\SYSTEM:(OI)(CI)(S,RD)
+                 BUILTIN\Administrators:(F)
+                 BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\Windows\SysWOW64\ NT SERVICE\TrustedInstaller:(F)
+                     BUILTIN\Administrators:(M)
+                     BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\Windows\SysWOW64\ NT SERVICE\TrustedInstaller:(F)
+                     BUILTIN\Administrators:(M)
+                     BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\PROGRA~2\SYSTEM~1\ Everyone:(OI)(CI)(M)
+                      BUILTIN\Administrators:(I)(F)
+                      BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+
+C:\Windows\SysWOW64\ NT SERVICE\TrustedInstaller:(F)
+                     BUILTIN\Administrators:(M)
+                     BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\Windows\SysWOW64\wbem\ NT SERVICE\TrustedInstaller:(F)
+                          BUILTIN\Administrators:(M)
+                          BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\Windows\servicing\ NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\WinSxS\amd64_microsoft-windows-servicingstack_31bf3856ad364e35_6.3.9600.17031_none_fa50b3979b1bcb4a\ NT SERVICE\TrustedInstaller:(OI)(CI)(F)
+
+C:\Windows\SysWOW64\ NT SERVICE\TrustedInstaller:(F)
+                     BUILTIN\Administrators:(M)
+                     BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\Windows\SysWOW64\wbem\ NT SERVICE\TrustedInstaller:(F)
+                          BUILTIN\Administrators:(M)
+                          BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\Windows\SysWOW64\ NT SERVICE\TrustedInstaller:(F)
+                     BUILTIN\Administrators:(M)
+                     BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\Windows\SysWOW64\ NT SERVICE\TrustedInstaller:(F)
+                     BUILTIN\Administrators:(M)
+                     BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+C:\Windows\SysWOW64\ NT SERVICE\TrustedInstaller:(F)
+                     BUILTIN\Administrators:(M)
+                     BUILTIN\Administrators:(OI)(CI)(IO)(F)
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] RUN AT STARTUP <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Check if you can modify any binary that is going to be executed by admin or if you can impersonate a not found binary
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#run-at-startup
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] AlwaysInstallElevated? <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] If '1' then you can install a .msi file with admin privileges ;)
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#alwaysinstallelevated
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [*] NETWORK <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] CURRENT SHARES <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+Share name   Resource                        Remark
+
+-------------------------------------------------------------------------------
+C$           C:\                             Default share                     
+IPC$                                         Remote IPC                        
+ADMIN$       C:\Windows                      Remote Admin                      
+The command completed successfully.
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] INTERFACES <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : hackpark
+   Primary Dns Suffix  . . . . . . . : 
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+   DNS Suffix Search List. . . . . . : eu-west-1.ec2-utilities.amazonaws.com
+                                       eu-west-1.compute.internal
+
+Ethernet adapter Ethernet 2:
+
+   Connection-specific DNS Suffix  . : eu-west-1.compute.internal
+   Description . . . . . . . . . . . : AWS PV Network Device #0
+   Physical Address. . . . . . . . . : 02-95-28-B5-3C-00
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::b0da:cf9:7ea2:b8e%14(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 10.10.181.120(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.0.0
+   Lease Obtained. . . . . . . . . . : Thursday, May 28, 2020 5:17:04 PM
+   Lease Expires . . . . . . . . . . : Thursday, May 28, 2020 6:47:05 PM
+   Default Gateway . . . . . . . . . : 10.10.0.1
+   DHCP Server . . . . . . . . . . . : 10.10.0.1
+   DHCPv6 IAID . . . . . . . . . . . : 335943906
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-24-DA-49-4B-08-00-27-7A-66-52
+   DNS Servers . . . . . . . . . . . : 10.0.0.2
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+
+Tunnel adapter isatap.eu-west-1.compute.internal:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : eu-west-1.compute.internal
+   Description . . . . . . . . . . . : Microsoft ISATAP Adapter #2
+   Physical Address. . . . . . . . . : 00-00-00-00-00-00-00-E0
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] USED PORTS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Check for services restricted from the outside
+  TCP    0.0.0.0:80             0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       788
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING       1880
+  TCP    0.0.0.0:5985           0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:47001          0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:49152          0.0.0.0:0              LISTENING       584
+  TCP    0.0.0.0:49153          0.0.0.0:0              LISTENING       868
+  TCP    0.0.0.0:49154          0.0.0.0:0              LISTENING       920
+  TCP    0.0.0.0:49155          0.0.0.0:0              LISTENING       1128
+  TCP    0.0.0.0:49160          0.0.0.0:0              LISTENING       668
+  TCP    0.0.0.0:49161          0.0.0.0:0              LISTENING       680
+  TCP    10.10.181.120:139      0.0.0.0:0              LISTENING       4
+  TCP    [::]:80                [::]:0                 LISTENING       4
+  TCP    [::]:135               [::]:0                 LISTENING       788
+  TCP    [::]:445               [::]:0                 LISTENING       4
+  TCP    [::]:3389              [::]:0                 LISTENING       1880
+  TCP    [::]:5985              [::]:0                 LISTENING       4
+  TCP    [::]:47001             [::]:0                 LISTENING       4
+  TCP    [::]:49152             [::]:0                 LISTENING       584
+  TCP    [::]:49153             [::]:0                 LISTENING       868
+  TCP    [::]:49154             [::]:0                 LISTENING       920
+  TCP    [::]:49155             [::]:0                 LISTENING       1128
+  TCP    [::]:49160             [::]:0                 LISTENING       668
+  TCP    [::]:49161             [::]:0                 LISTENING       680
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] FIREWALL <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+Firewall status:
+-------------------------------------------------------------------
+Profile                           = Standard
+Operational mode                  = Enable
+Exception mode                    = Enable
+Multicast/broadcast response mode = Enable
+Notification mode                 = Disable
+Group policy version              = Windows Firewall
+Remote admin mode                 = Disable
+
+Ports currently open on all network interfaces:
+Port   Protocol  Version  Program
+-------------------------------------------------------------------
+No ports are currently open on all network interfaces.
+
+IMPORTANT: Command executed successfully.
+However, "netsh firewall" is deprecated;
+use "netsh advfirewall firewall" instead.
+For more information on using "netsh advfirewall firewall" commands
+instead of "netsh firewall", see KB article 947709
+at http://go.microsoft.com/fwlink/?linkid=121488 .
+
+
+
+Domain profile configuration:
+-------------------------------------------------------------------
+Operational mode                  = Enable
+Exception mode                    = Enable
+Multicast/broadcast response mode = Enable
+Notification mode                 = Disable
+
+Service configuration for Domain profile:
+Mode     Customized  Name
+-------------------------------------------------------------------
+Enable   No          Remote Desktop
+
+Allowed programs configuration for Domain profile:
+Mode     Traffic direction    Name / Program
+-------------------------------------------------------------------
+
+Port configuration for Domain profile:
+Port   Protocol  Mode    Traffic direction     Name
+-------------------------------------------------------------------
+
+ICMP configuration for Domain profile:
+Mode     Type  Description
+-------------------------------------------------------------------
+Enable   2     Allow outbound packet too big
+
+Standard profile configuration (current):
+-------------------------------------------------------------------
+Operational mode                  = Enable
+Exception mode                    = Enable
+Multicast/broadcast response mode = Enable
+Notification mode                 = Disable
+
+Service configuration for Standard profile:
+Mode     Customized  Name
+-------------------------------------------------------------------
+Enable   No          Remote Desktop
+
+Allowed programs configuration for Standard profile:
+Mode     Traffic direction    Name / Program
+-------------------------------------------------------------------
+
+Port configuration for Standard profile:
+Port   Protocol  Mode    Traffic direction     Name
+-------------------------------------------------------------------
+
+ICMP configuration for Standard profile:
+Mode     Type  Description
+-------------------------------------------------------------------
+Enable   2     Allow outbound packet too big
+
+Log configuration:
+-------------------------------------------------------------------
+File location   = C:\Windows\system32\LogFiles\Firewall\pfirewall.log
+Max file size   = 4096 KB
+Dropped packets = Disable
+Connections     = Disable
+
+IMPORTANT: Command executed successfully.
+However, "netsh firewall" is deprecated;
+use "netsh advfirewall firewall" instead.
+For more information on using "netsh advfirewall firewall" commands
+instead of "netsh firewall", see KB article 947709
+at http://go.microsoft.com/fwlink/?linkid=121488 .
+
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] ARP <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+Interface: 10.10.181.120 --- 0xe
+  Internet Address      Physical Address      Type
+  10.10.0.1             02-c8-85-b5-5a-aa     dynamic   
+  10.10.255.255         ff-ff-ff-ff-ff-ff     static    
+  169.254.169.254       02-c8-85-b5-5a-aa     dynamic   
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] ROUTES <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+===========================================================================
+Interface List
+ 14...02 95 28 b5 3c 00 ......AWS PV Network Device #0
+  1...........................Software Loopback Interface 1
+ 24...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+===========================================================================
+
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0        10.10.0.1    10.10.181.120     10
+        10.10.0.0      255.255.0.0         On-link     10.10.181.120    266
+    10.10.181.120  255.255.255.255         On-link     10.10.181.120    266
+    10.10.255.255  255.255.255.255         On-link     10.10.181.120    266
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+  169.254.169.123  255.255.255.255        10.10.0.1    10.10.181.120     10
+  169.254.169.249  255.255.255.255        10.10.0.1    10.10.181.120     10
+  169.254.169.250  255.255.255.255        10.10.0.1    10.10.181.120     10
+  169.254.169.251  255.255.255.255        10.10.0.1    10.10.181.120     10
+  169.254.169.253  255.255.255.255        10.10.0.1    10.10.181.120     10
+  169.254.169.254  255.255.255.255        10.10.0.1    10.10.181.120     10
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+        224.0.0.0        240.0.0.0         On-link     10.10.181.120    266
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+  255.255.255.255  255.255.255.255         On-link     10.10.181.120    266
+===========================================================================
+Persistent Routes:
+  None
+
+IPv6 Route Table
+===========================================================================
+Active Routes:
+ If Metric Network Destination      Gateway
+  1    306 ::1/128                  On-link
+ 14    266 fe80::/64                On-link
+ 14    266 fe80::b0da:cf9:7ea2:b8e/128
+                                    On-link
+  1    306 ff00::/8                 On-link
+ 14    266 ff00::/8                 On-link
+===========================================================================
+Persistent Routes:
+  None
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Hosts file <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] CACHE DNS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] WIFI <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+The following command was not found: wlan show profile.
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_->[*] BASIC USER INFO <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Check if you are inside the Administrators group or if you have enabled any token that can be use to escalate privileges like SeImpersonatePrivilege, SeAssignPrimaryPrivilege, SeTcbPrivilege, SeBackupPrivilege, SeRestorePrivilege, SeCreateTokenPrivilege, SeLoadDriverPrivilege, SeTakeOwnershipPrivilege, SeDebbugPrivilege
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#users-and-groups
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] CURRENT USER <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+User name                    Administrator
+Full Name                    
+Comment                      Built-in account for administering the computer/domain
+User's comment               
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+
+Password last set            8/3/2019 10:43:23 AM
+Password expires             9/14/2019 10:43:23 AM
+Password changeable          8/3/2019 10:43:23 AM
+Password required            Yes
+User may change password     Yes
+
+Workstations allowed         All
+Logon script                 
+User profile                 
+Home directory               
+Last logon                   5/28/2020 5:17:15 PM
+
+Logon hours allowed          All
+
+Local Group Memberships      *Administrators       
+Global Group memberships     *None                 
+The command completed successfully.
+
+The request will be processed at a domain controller for domain WORKGROUP.
+
+
+USER INFORMATION
+----------------
+
+User Name              SID                                        
+====================== ===========================================
+hackpark\administrator S-1-5-21-141259258-288879770-3894983326-500
+
+
+GROUP INFORMATION
+-----------------
+
+Group Name                                                    Type             SID          Attributes                                                     
+============================================================= ================ ============ ===============================================================
+Everyone                                                      Well-known group S-1-1-0      Mandatory group, Enabled by default, Enabled group             
+NT AUTHORITY\Local account and member of Administrators group Well-known group S-1-5-114    Mandatory group, Enabled by default, Enabled group             
+BUILTIN\Administrators                                        Alias            S-1-5-32-544 Mandatory group, Enabled by default, Enabled group, Group owner
+BUILTIN\Users                                                 Alias            S-1-5-32-545 Mandatory group, Enabled by default, Enabled group             
+NT AUTHORITY\INTERACTIVE                                      Well-known group S-1-5-4      Mandatory group, Enabled by default, Enabled group             
+CONSOLE LOGON                                                 Well-known group S-1-2-1      Mandatory group, Enabled by default, Enabled group             
+NT AUTHORITY\Authenticated Users                              Well-known group S-1-5-11     Mandatory group, Enabled by default, Enabled group             
+NT AUTHORITY\This Organization                                Well-known group S-1-5-15     Mandatory group, Enabled by default, Enabled group             
+NT AUTHORITY\Local account                                    Well-known group S-1-5-113    Mandatory group, Enabled by default, Enabled group             
+LOCAL                                                         Well-known group S-1-2-0      Mandatory group, Enabled by default, Enabled group             
+NT AUTHORITY\NTLM Authentication                              Well-known group S-1-5-64-10  Mandatory group, Enabled by default, Enabled group             
+Mandatory Label\High Mandatory Level                          Label            S-1-16-12288                                                                
+
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                  Description                               State   
+=============================== ========================================= ========
+SeIncreaseQuotaPrivilege        Adjust memory quotas for a process        Enabled 
+SeSecurityPrivilege             Manage auditing and security log          Disabled
+SeTakeOwnershipPrivilege        Take ownership of files or other objects  Enabled 
+SeLoadDriverPrivilege           Load and unload device drivers            Disabled
+SeSystemProfilePrivilege        Profile system performance                Disabled
+SeSystemtimePrivilege           Change the system time                    Disabled
+SeProfileSingleProcessPrivilege Profile single process                    Disabled
+SeIncreaseBasePriorityPrivilege Increase scheduling priority              Disabled
+SeCreatePagefilePrivilege       Create a pagefile                         Disabled
+SeBackupPrivilege               Back up files and directories             Disabled
+SeRestorePrivilege              Restore files and directories             Disabled
+SeShutdownPrivilege             Shut down the system                      Disabled
+SeDebugPrivilege                Debug programs                            Enabled 
+SeSystemEnvironmentPrivilege    Modify firmware environment values        Disabled
+SeChangeNotifyPrivilege         Bypass traverse checking                  Enabled 
+SeRemoteShutdownPrivilege       Force shutdown from a remote system       Disabled
+SeUndockPrivilege               Remove computer from docking station      Disabled
+SeManageVolumePrivilege         Perform volume maintenance tasks          Disabled
+SeImpersonatePrivilege          Impersonate a client after authentication Enabled 
+SeCreateGlobalPrivilege         Create global objects                     Enabled 
+SeIncreaseWorkingSetPrivilege   Increase a process working set            Disabled
+SeTimeZonePrivilege             Change the time zone                      Disabled
+SeCreateSymbolicLinkPrivilege   Create symbolic links                     Disabled
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] USERS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+User accounts for \\HACKPARK
+
+-------------------------------------------------------------------------------
+Administrator            Guest                    jeff                     
+The command completed successfully.
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] GROUPS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+Aliases for \\HACKPARK
+
+-------------------------------------------------------------------------------
+*Access Control Assistance Operators
+*Administrators
+*Backup Operators
+*Certificate Service DCOM Access
+*Cryptographic Operators
+*Distributed COM Users
+*Event Log Readers
+*Guests
+*Hyper-V Administrators
+*IIS_IUSRS
+*Network Configuration Operators
+*Performance Log Users
+*Performance Monitor Users
+*Power Users
+*Print Operators
+*RDS Endpoint Servers
+*RDS Management Servers
+*RDS Remote Access Servers
+*Remote Desktop Users
+*Remote Management Users
+*Replicator
+*Users
+*WinRMRemoteWMIUsers__
+The command completed successfully.
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] ADMINISTRATORS GROUPS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+Alias name     Administrators
+Comment        Administrators have complete and unrestricted access to the computer/domain
+
+Members
+
+-------------------------------------------------------------------------------
+Administrator
+The command completed successfully.
+
+ 
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] CURRENT LOGGED USERS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+ USERNAME              SESSIONNAME        ID  STATE   IDLE TIME  LOGON TIME
+>administrator         console             1  Active      none   5/28/2020 5:17 PM
+ 
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Kerberos Tickets <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+Current LogonId is 0:0x284a5
+
+Cached Tickets: (0)
+ 
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] CURRENT CLIPBOARD <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Any password inside the clipboard?
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [*] SERVICES VULNERABILITIES <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] SERVICE BINARY PERMISSIONS WITH WMIC + ICACLS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#services
+C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe NT AUTHORITY\SYSTEM:(I)(F)
+                                                 BUILTIN\Administrators:(I)(F)
+
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_state.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Program Files\Amazon\XenTools\LiteAgent.exe NT AUTHORITY\SYSTEM:(I)(F)
+                                               BUILTIN\Administrators:(I)(F)
+
+C:\Program Files\Amazon\Ec2ConfigService\Ec2Config.exe NT AUTHORITY\SYSTEM:(I)(F)
+                                                       BUILTIN\Administrators:(I)(F)
+
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\SMSvcHost.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\SysWow64\perfhost.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\Windows\PSSDNSVC.EXE NT AUTHORITY\SYSTEM:(I)(F)
+                        BUILTIN\Administrators:(I)(F)
+
+C:\Windows\servicing\TrustedInstaller.exe NT SERVICE\TrustedInstaller:(F)
+
+C:\PROGRA~2\SYSTEM~1\WService.exe Everyone:(I)(M)
+                                  BUILTIN\Administrators:(I)(F)
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] CHECK IF YOU CAN MODIFY ANY SERVICE REGISTRY <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#services
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\.NETFramework
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\1394ohci
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\3ware
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ACPI
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\acpiex
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\acpipagr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AcpiPmi
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\acpitime
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ADP80XX
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\adsi
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AeLookupSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AFD
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\agp440
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ahcache
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ALG
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AmazonSSMAgent
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AmdK8
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AmdPPM
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\amdsata
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\amdsbs
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\amdxata
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AppHostSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AppID
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AppIDSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Appinfo
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AppMgmt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AppReadiness
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AppXSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\arcsas
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ASP.NET
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ASP.NET_4.0.30319
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\aspnet_state
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AsyncMac
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\atapi
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AudioEndpointBuilder
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Audiosrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AWSLiteAgent
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\AWSNVMe
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\b06bdrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\BasicDisplay
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\BasicRender
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\BattC
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Beep
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\bfadfcoei
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\bfadi
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\BFE
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\BITS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\bowser
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\BrokerInfrastructure
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Browser
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\bxfcoe
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\bxois
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\cdfs
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\cdrom
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\CertPropSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\cht4vbd
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\CLFS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\clr_optimization_v4.0.30319_32
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\clr_optimization_v4.0.30319_64
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\CmBatt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\CNG
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\CngHwAssist
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\CompositeBus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\COMSysApp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\condrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\crypt32
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\CryptSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\DCLocator
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\defragsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\DeviceAssociationService
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\DeviceInstall
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Dfsc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Dhcp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\disk
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\dmvsc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Dnscache
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\dot3svc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\drmkaud
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\DsmSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\DXGKrnl
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\E1G60
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Eaphost
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ebdrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Ec2Config
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\EFS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\elxfcoe
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\elxstor
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ErrDev
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ESENT
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\EventLog
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\EventSystem
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\exfat
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\fastfat
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\fcvsc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\fdc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\fdPHost
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\FDResPub
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\FileInfo
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Filetrace
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\flpydisk
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\FltMgr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\FontCache
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\FsDepends
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Fs_Rec
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\FxPPM
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\gagp30kx
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\gencounter
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\GPIOClx0101
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\HdAudAddService
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\HDAudBus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\HidBatt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\hidserv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\HidUsb
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\hkmsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\HpSAMD
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\HTTP
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\hwpolicy
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\hyperkbd
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\HyperVideo
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\i8042prt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\iaStorAV
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\iaStorV
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ibbus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\IEEtwCollectorService
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\IKEEXT
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\inetaccs
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\InetInfo
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\intelide
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\intelppm
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\IpFilterDriver
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\iphlpsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\IPMIDRV
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\IPNAT
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\isapnp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\iScsiPrt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\kbdclass
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\kbdhid
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\kdnic
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\KeyIso
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\KPSSVC
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\KSecDD
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\KSecPkg
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ksthunk
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\KtmRm
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\LanmanServer
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\LanmanWorkstation
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ldap
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\lltdio
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\lltdsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\lmhosts
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Lsa
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\LSI_SAS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\LSI_SAS2
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\LSI_SAS3
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\LSI_SSS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\LSM
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\luafv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\megasas
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\megasr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mlx4_bus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MMCSS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Modem
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\monitor
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mouclass
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mouhid
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mountmgr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mpsdrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MpsSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mrxsmb
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mrxsmb10
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mrxsmb20
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MsBridge
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MSDTC
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MSDTC
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Msfs
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mshidkmdf
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mshidumdf
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\msisadrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MSiSCSI
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\msiserver
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MSKSSRV
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MsLbfoProvider
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MSPCLOCK
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MSPQM
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MsRPC
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mssmbios
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MSTEE
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\MTConfig
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Mup
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\mvumis
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\napagent
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NcaSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ndfltr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NDIS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NdisCap
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NdisImPlatform
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NdisTapi
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Ndisuio
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NdisVirtualBus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NdisWan
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NDISWANLEGACY
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NDProxy
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NetBIOS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NetBT
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Netlogon
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Netman
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\netprofm
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NetTcpPortSharing
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\netvsc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NlaSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Npfs
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\npsvctrig
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\nsi
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\nsiproxy
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\NTDS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Ntfs
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Null
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\nvraid
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\nvstor
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\nv_agp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Parport
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\partmgr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\pci
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\pciide
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\pcmcia
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\pcw
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\pdc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PEAUTH
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PerfDisk
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PerfHost
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PerfNet
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PerfOS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PerfProc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\pla
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PlugPlay
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PolicyAgent
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PortProxy
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Power
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PptpMiniport
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PrintNotify
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Processor
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ProfSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Psched
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\PsShutdownSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ql2300i
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ql40xx2i
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\qlfcoei
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RasAcd
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RasAgileVpn
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RasAuto
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Rasl2tp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RasMan
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RasPppoe
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RasSstp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\rdbss
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RDMANDK
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\rdpbus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RDPDR
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RDPNP
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RDPUDD
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RdpVideoMiniport
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ReFS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RemoteAccess
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RemoteRegistry
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RpcEptMapper
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RpcLocator
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\RSoPProv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\rspndr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\s3cap
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\sacdrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\sacsvr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\sbp2port
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SCardSvr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ScDeviceEnum
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\scfilter
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Schedule
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SCPolicySvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\sdbus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\sdstor
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\secdrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\seclogon
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SENS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SerCx
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SerCx2
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Serenum
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Serial
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\sermouse
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SessionEnv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\sfloppy
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SharedAccess
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ShellHWDetection
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SiSRaid2
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SiSRaid4
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\smbdirect
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\smphost
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SNMP
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SNMPTRAP
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\spaceport
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SpbCx
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Spooler
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\sppsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\srv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\srv2
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\srvnet
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SSDPSRV
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SstpSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\stexstor
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\storahci
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\storflt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\stornvme
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\storvsc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\storvsp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\svsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\swenum
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\swprv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SysMain
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\SystemEventsBroker
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TapiSrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Tcpip
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TCPIP6
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TCPIP6TUNNEL
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\tcpipreg
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TCPIPTUNNEL
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\tdx
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\terminpt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TermService
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Themes
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\THREADORDER
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TieringEngineService
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TPM
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TSDDD
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TsUsbFlt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\TsUsbGD
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\tsusbhub
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\tunnel
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\uagp35
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\UALSVC
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\UASPStor
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\UCX01000
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\udfs
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\UEFI
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\UI0Detect
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\uliagpkx
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\umbus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\UmPass
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\UmRdpService
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\upnphost
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\usbccgp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\usbehci
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\usbhub
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\USBHUB3
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\usbohci
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\usbprint
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\USBSTOR
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\usbuhci
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\USBXHCI
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\VaultSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vdrvroot
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vds
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\VerifierExt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vhdmp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\viaide
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Vid
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vmbus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\VMBusHID
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vmbusr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vmicguestinterface
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vmicheartbeat
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vmickvpexchange
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vmicrdv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vmicshutdown
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vmictimesync
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vmicvss
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\volmgr
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\volmgrx
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\volsnap
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vpci
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vpcivsp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\vsmraid
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\VSS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\VSTXRAID
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\W32Time
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\w3logsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\W3SVC
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WacomPen
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Wanarp
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Wanarpv6
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WAS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Wcmsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WcsPlugInService
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Wdf01000
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Wecsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WEPHOSTSVC
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\wercplsupport
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WerSvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WFPLWFS
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WIMMount
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WindowsScheduler
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WinHttpAutoProxySvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WinMad
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Winmgmt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WinNat
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WinRM
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\Winsock
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WinSock2
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WinVerbs
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WmiAcpi
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WmiApRpl
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\wmiApSrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\workerdd
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WPDBusEnum
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\ws2ifsl
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WSService
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\wtlmdrv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\wuauserv
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\WudfPf
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\wudfsvc
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\XEN
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\xenbus
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\xenbus_monitor
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\xenfilt
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\xeniface
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\xennet
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\xenvbd
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\xenvif
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\xmlprov
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\{35E1B823-1443-4A40-875E-3A1C41494DB7}
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\{51E2531C-2946-4F58-A4BB-072994EB3731}
+You can modify HKEY_LOCAL_MACHINE\system\currentcontrolset\services\{C7568B63-C424-48B3-AB9B-6D1F004D5AFC}
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] UNQUOTED SERVICE PATHS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] When the path is not quoted (ex: C:\Program files\soft\new folder\exec.exe) Windows will try to execute first 'C:\Progam.exe', then 'C:\Program Files\soft\new.exe' and finally 'C:\Program Files\soft\new folder\exec.exe'. Try to create 'C:\Program Files\soft\new.exe'
+[i] The permissions are also checked and filtered using icacls
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#services
+aspnet_state 
+ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_state.exe 
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_state.exe NT SERVICE\TrustedInstaller:(F)
+
+AWSLiteAgent 
+ C:\Program Files\Amazon\XenTools\LiteAgent.exe 
+NetTcpPortSharing 
+ C:\Windows\Microsoft.NET\Framework64\v4.0.30319\SMSvcHost.exe 
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\SMSvcHost.exe NT SERVICE\TrustedInstaller:(F)
+
+PerfHost 
+ C:\Windows\SysWow64\perfhost.exe 
+C:\Windows\SysWow64\perfhost.exe NT SERVICE\TrustedInstaller:(F)
+
+PsShutdownSvc 
+ C:\Windows\PSSDNSVC.EXE 
+C:\Windows\PSSDNSVC.EXE NT AUTHORITY\SYSTEM:(I)(F)
+                        BUILTIN\Administrators:(I)(F)
+
+TrustedInstaller 
+ C:\Windows\servicing\TrustedInstaller.exe 
+C:\Windows\servicing\TrustedInstaller.exe NT SERVICE\TrustedInstaller:(F)
+
+WindowsScheduler 
+ C:\PROGRA~2\SYSTEM~1\WService.exe 
+C:\PROGRA~2\SYSTEM~1\WService.exe Everyone:(I)(M)
+                                  BUILTIN\Administrators:(I)(F)
+
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [*] DLL HIJACKING in PATHenv variable <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Maybe you can take advantage of modifying/creating some binary in some of the following locations
+[i] PATH variable entries permissions - place binary or DLL to execute instead of legitimate
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#dll-hijacking
+C:\Windows\system32 NT SERVICE\TrustedInstaller:(F)
+                    BUILTIN\Administrators:(M)
+                    BUILTIN\Administrators:(OI)(CI)(IO)(F)
+ 
+C:\Windows NT SERVICE\TrustedInstaller:(F)
+           BUILTIN\Administrators:(M)
+           BUILTIN\Administrators:(OI)(CI)(IO)(F)
+ 
+C:\Windows\System32\Wbem NT SERVICE\TrustedInstaller:(F)
+                         BUILTIN\Administrators:(M)
+                         BUILTIN\Administrators:(OI)(CI)(IO)(F)
+ 
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [*] CREDENTIALS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] WINDOWS VAULT <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#windows-vault
+
+Currently stored credentials:
+
+* NONE *
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] DPAPI MASTER KEYS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Use the Mimikatz 'dpapi::masterkey' module with appropriate arguments (/rpc) to decrypt
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#dpapi
+
+
+    Directory: C:\Users\Administrator\AppData\Roaming\Microsoft\Protect
+
+
+Mode                LastWriteTime     Length Name                              
+----                -------------     ------ ----                              
+d---s          8/3/2019  10:48 AM            S-1-5-21-141259258-288879770-38949
+                                             83326-500                         
+
+
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] DPAPI MASTER KEYS <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Use the Mimikatz 'dpapi::cred' module with appropriate /masterkey to decrypt
+[i] You can also extract many DPAPI masterkeys from memory with the Mimikatz 'sekurlsa::dpapi' module
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#dpapi
+Looking inside C:\Users\Administrator\AppData\Roaming\Microsoft\Credentials\
+Looking inside C:\Users\Administrator\AppData\Local\Microsoft\Credentials\
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Unattended files <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] SAM 
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] McAffe SiteList.xml <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+ Volume in drive C has no label.
+ Volume Serial Number is 0E97-C552
+ Volume in drive C has no label.
+ Volume Serial Number is 0E97-C552
+ Volume in drive C has no label.
+ Volume Serial Number is 0E97-C552
+ Volume in drive C has no label.
+ Volume Serial Number is 0E97-C552
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] GPP Password <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Cloud Creds <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] AppCmd <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#appcmd-exe
+C:\Windows\system32\inetsrv\appcmd.exe exists. 
+
+
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-> [+] Files an registry that may contain credentials <_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+[i] Searching specific files that may contains credentials.
+  [?] https://book.hacktricks.xyz/windows/windows-local-privilege-escalation#credentials-inside-files
+Looking inside HKCU\Software\ORL\WinVNC3\Password
+Looking inside HKEY_LOCAL_MACHINE\SOFTWARE\RealVNC\WinVNC4/password
+Looking inside HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\WinLogon
+    DefaultDomainName    REG_SZ    
+    DefaultUserName    REG_SZ    
+Looking inside HKLM\SYSTEM\CurrentControlSet\Services\SNMP
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMP\Parameters
+
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\ExtensionAgents
+    W3SVC    REG_SZ    Software\Microsoft\W3SVC\CurrentVersion
+
+Looking inside HKCU\Software\TightVNC\Server
+Looking inside HKCU\Software\SimonTatham\PuTTY\Sessions
+Looking inside HKCU\Software\OpenSSH\Agent\Keys
+C:\Windows\Panther\setupinfo
+C:\Windows\System32\inetsrv\appcmd.exe
+C:\Windows\SysWOW64\inetsrv\appcmd.exe
+C:\Windows\WinSxS\amd64_ipamprov-dhcp_31bf3856ad364e35_6.3.9600.16384_none_64e8a179c6f2a167\ScheduledTasks.xml
+C:\Windows\WinSxS\amd64_ipamprov-dns_31bf3856ad364e35_6.3.9600.16384_none_824aabe06aee1705\ScheduledTasks.xml
+C:\Windows\WinSxS\amd64_microsoft-windows-d..rvices-domain-files_31bf3856ad364e35_6.3.9600.16384_none_8bc96e4517571480\ntds.dit
+C:\Windows\WinSxS\amd64_microsoft-windows-iis-sharedlibraries_31bf3856ad364e35_6.3.9600.16384_none_01a7d2cf88c95dc0\appcmd.exe
+C:\Windows\WinSxS\amd64_microsoft-windows-iis-sharedlibraries_31bf3856ad364e35_6.3.9600.17031_none_01dac51388a3a832\appcmd.exe
+C:\Windows\WinSxS\amd64_microsoft-windows-webenroll.resources_31bf3856ad364e35_6.3.9600.16384_en-us_7427d216367d8d3f\certnew.cer
+C:\Windows\WinSxS\wow64_ipamprov-dhcp_31bf3856ad364e35_6.3.9600.16384_none_6f3d4bcbfb536362\ScheduledTasks.xml
+C:\Windows\WinSxS\wow64_ipamprov-dns_31bf3856ad364e35_6.3.9600.16384_none_8c9f56329f4ed900\ScheduledTasks.xml
+C:\Windows\WinSxS\wow64_microsoft-windows-iis-sharedlibraries_31bf3856ad364e35_6.3.9600.16384_none_0bfc7d21bd2a1fbb\appcmd.exe
+C:\Windows\WinSxS\wow64_microsoft-windows-iis-sharedlibraries_31bf3856ad364e35_6.3.9600.17031_none_0c2f6f65bd046a2d\appcmd.exe
+C:\inetpub\logs\LogFiles\W3SVC1\u_ex190803.log
+C:\inetpub\logs\LogFiles\W3SVC1\u_ex190804.log
+C:\inetpub\logs\LogFiles\W3SVC1\u_ex190805.log
+C:\inetpub\logs\LogFiles\W3SVC1\u_ex200529.log
+C:\inetpub\logs\LogFiles\W3SVC2\u_ex190803.log
+C:\inetpub\wwwroot\Web.config
+C:\inetpub\wwwroot\Account\Web.Config
+C:\inetpub\wwwroot\admin\Web.Config
+C:\inetpub\wwwroot\admin\app\editor\Web.Config
+C:\inetpub\wwwroot\setup\Web.config
+
+

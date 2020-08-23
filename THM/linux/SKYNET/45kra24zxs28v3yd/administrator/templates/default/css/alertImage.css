@@ -1,0 +1,60 @@
+.alert_image{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:#FFF;
+	position:relative;
+	width:40px;
+	height:40px;
+	border:0px;
+	overflow:hidden;
+	border-radius:6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0pt 0pt 15px rgba(0, 0, 0, 0.5); 
+	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+	
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin-left:-20px;
+	margin-top:-20px;
+}
+.icon_charger_image{
+	width:100%;
+	height:100%;
+	background:#FFF url(../images/loaderBall.gif) center no-repeat;
+	border-radius:6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0pt 0pt 15px rgba(0, 0, 0, 0.5); 
+	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+.image{
+	position:relative;
+	margin:0 auto;
+	top:25px;
+	left:50%;
+}
+.btnClose_alert_image{
+	position:absolute;
+	float:right;
+	right:2px;
+	width:22px;
+	height:22px;
+	background:url(../images/close.png) no-repeat;
+	cursor:pointer;
+	top:2px;
+	visibility:hidden;
+}
+.description_image{
+	position:absolute;
+	float:left;
+	left:6px;
+	top:10px;
+	visibility:visible;
+	color:#666;
+	font-size:12px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-style:italic;
+	visibility:hidden;
+}

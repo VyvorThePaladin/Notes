@@ -1,0 +1,25 @@
+# Nmap 7.80 scan initiated Thu Apr 30 04:17:41 2020 as: nmap -sC -sV -oN nmap/initial.nmap 10.10.106.111
+Nmap scan report for 10.10.106.111
+Host is up (0.11s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 04:8a:d2:10:02:cd:e8:4f:5d:22:21:11:92:31:0f:5b (DSA)
+|   2048 7c:9e:7d:16:1b:05:f0:3c:1e:9b:f4:0e:23:1e:ea:89 (RSA)
+|   256 04:b4:d4:11:ee:7b:2b:66:6c:4a:df:56:2d:88:76:7a (ECDSA)
+|_  256 7d:1d:c3:43:1d:52:84:33:5d:94:07:2f:87:55:43:27 (ED25519)
+80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu))
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: Apache/2.4.7 (Ubuntu)
+| http-title: Login :: Damn Vulnerable Web Application (DVWA) v1.10 *Develop...
+|_Requested resource was login.php
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Apr 30 04:18:08 2020 -- 1 IP address (1 host up) scanned in 26.58 seconds

@@ -1,0 +1,53 @@
+.default_alert{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	background:#FFF;
+	position:relative;
+	width:420px;
+	border:#CCC 1px solid;
+	border-radius:6px;
+	-moz-border-radius: 6px 6px 6px 6px;
+	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0pt 0pt 15px rgba(0, 0, 0, 0.5); 
+	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+	overflow:hidden;
+	
+	position:fixed;
+	top:50%;
+	left:50%;
+}
+.content_default_alert{
+	position:relative;
+	width:100%;
+	min-height:100px;
+}
+.text_default_alert{
+	margin-left:100px;
+	padding-top:20px;
+	padding-bottom:15px;
+	padding-right:20px;
+	top:50px;
+	left:100px;
+	height:auto;
+}
+.buttons_default_alert{
+	position:relative;
+	width:100%;
+	background-color:#EEEEEE;
+	border:1px solid #DFDFDF;
+	text-align:right;
+	padding-top:7px;
+	padding-bottom:7px;
+	float:right;
+}
+.btnAccept{
+	margin-right:10px;
+}
+.icon_default_alert{
+	position:absolute;
+	top:15%;
+	left:5%;
+	width:64px; 
+	height:64px;
+	background:url(../images/defaultAlert/standarIcon.png) no-repeat;
+}

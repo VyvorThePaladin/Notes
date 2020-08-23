@@ -1,0 +1,17 @@
+# Nmap 7.80 scan initiated Sun May 24 19:24:32 2020 as: nmap -sC -sV -oN nmap/initial.nmap 10.10.208.98
+Nmap scan report for 10.10.208.98
+Host is up (0.11s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.6 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 df:b7:a3:d8:52:89:44:c3:bf:82:0a:74:fe:7e:92:81 (RSA)
+|   256 2c:9f:0d:c3:31:59:e1:84:23:ae:74:12:2e:0a:b4:77 (ECDSA)
+|_  256 e0:fb:f2:0b:51:83:8d:e1:8c:0b:06:18:30:03:16:3e (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Jarassic Park
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun May 24 19:24:44 2020 -- 1 IP address (1 host up) scanned in 12.34 seconds

@@ -1,0 +1,3 @@
+Metasploit Box:
++ nmap can be run inside msfconsole using `db_nmap [switches] [machine_IP]`
+
