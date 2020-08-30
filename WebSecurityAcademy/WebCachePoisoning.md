@@ -213,4 +213,4 @@
 * If you do need to use caching, restricting it to purely static responses is also effective, provided you are sufficiently wary about what you class as "static".
 * If you are considering excluding something from the cache key for performance reasons, rewrite the request instead.
 * Don't accept fat GET requests. Be aware that some third-party technologies may permit this by default.
-* Patch client-side vulnerabilities even if they seem unexploitable.
+* Patch client-side vulnerabilities even if they seem unexploitable. 
