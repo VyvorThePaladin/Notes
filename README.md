@@ -5,3 +5,4 @@ Credits/Resources:
 3. https://www.hackthebox.eu/
 4. https://learn.cantrill.io/
 5. https://portal.tutorialsdojo.com/
+6. https://summitroute.com/
