@@ -1,0 +1,151 @@
+SQL Injection
+----------------------------
++ Web security vuln which allows attacker to interfere with the queries an application makes to its database. 
++ Modify/delete data causing changes to the behavior or content. 
+
+Replicate it:
++ Retrieve hidden data
+	`https://insecure-website.com/products?category=Gifts'--`
++ Subverting application logic
+	`SELECT * FROM users WHERE username = 'administrator'--' AND password = ''`
++ Retrieving data from other database tables
+	`SELECT name, description FROM products WHERE category = 'Gifts'`
+	`' UNION SELECT username, password FROM users--`
++ Examining the database
+	`SELECT * FROM v$version`
+	`SELECT * FROM information_schema.tables`
++ Blind SQL injection vulnerabilities
+	`Tracking ID example, test with 1=1|1=2, SUBSTRING(password,1,1) > m`
++ How to detect SQL injection vulnerabilities
+	`Submitting the single quote character ' and looking for errors`
+	`Submitting Boolean conditions such as OR 1=1 and OR 1=2`
+	`Submitting payloads designed to trigger time delays when executed within an SQL query`
++ SQL injection in different parts of the query
+	`WHERE clause of a SELECT query, UPDATE, INSERT, ORDER BY`
++ Second-order SQL injection
+	`(also known as stored SQL injection), the application takes user input from an HTTP request and stores it for future use`
+
+Business Impact:
++ Unauthorized access to sensitive information like passwords, credit card details, or personal user information.
++ Attackers can also create a persistent backdoor leading to a long-term compromise.
+
+Remediation:
++ Use prepared statements (with parameterized queries)
+	`with variable binding, first define all the SQL code and then pass the parameter to the query`
+	`allows the database to distinguish between code and data, regardless of what user input is supplied`
+	`Unsafe: parameter appended`
+	`Safe: store input into variable, prepareStatement, setString`
++ Use of Stored Procedures
+	`The difference between prepared statements and stored procedures is that the SQL code for a stored procedure is defined and stored in the database itself, and then called from the application.`
++ Whitelist Input Validation
++ Escaping All User Supplied Input
++ Enforcing Least Privilege
++ Performing Whitelist Input Validation as a Secondary Defense
+
+Broken Authentication
+----------------------------
+Best Practices:
+	`Never send user credentials over unencrypted connections`
+	`Implement effective password policy`
+	`Prevent username enumeration`
+	`Implement robust brute-force protection`
+	`Triple-check your verification logic`
+	`Implement proper multi-factor authentication`
+
+Remediation:
++ Do not ship or deploy with any default credentials, particularly for admin users.
++ Implement checks to determine password strength.
+
+Sensitive Data Exposure
+----------------------------
++ Occurs when data is not properly protect.
++ Rather than directly attacking crypto, attackers steal keys, execute man-in-the-middle attacks, or steal clear text data off the server, while in transit, or from the user’s client. 
++ Previously retrieved pwd dbs cap be bruteforced with GPUs.
+
+Remediation:
++ Identify sensitive data and apply controls.
++ Encrypt data at rest.
+
+XML External Entities (XXE)
+----------------------------
++ XML -> eXtensible Markup Language
++ XML entities -> represents an item of data within an XML document
++ Document Type Definition -> declarations that define the structure of an XML document (can be internal or enternal or hybrid)
++ XML custom entities -> `<!DOCTYPE foo [ <!ENTITY myentity "my entity value" > ]>`
++ XML External Entities -> `<!DOCTYPE foo [ <!ENTITY ext SYSTEM "http://normal-website.com" > ]>`
++ XML external entity injection (also known as XXE) is a web security vulnerability that allows an attacker to interfere with an application's processing of XML data.
++ It allows an attacker to view files on the application server filesystem.
++ Can also escalate to SSRF (see below)
++ Some appls use XML format to transmit data between server and browser.
++ Applications that do this virtually always use a standard library or platform API to process the XML data on the server.
++ Exploiting XXE to retrieve files
+	`<?xml version="1.0" encoding="UTF-8"?>`
+	`<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]>`
+	`<stockCheck><productId>&xxe;</productId></stockCheck>`
++ Exploiting XXE to perform SSRF attacks
++ Blind XXE vulnerabilities
++ Test for XXE by testing for file retrieval
+
+Business Impact:
++ Disclosure of confidential data
++ Denial of service [Billion Laughs]
++ SSRF
++ Port scanning from the server perspective
+
+Remediation:
++ Disable DTDs completely.
++ Whenever possible, use less complex data formats such as JSON, and avoiding serialization of sensitive data.
++ Use the defusedxml package for any server side code that parses untrusted XML data.
++ Disable XML external entity and DTD processing in all XML
+parsers in the application.
++ Server-side input validation, filtering or sanitization. 
+
+Server-side Request Forgery
+----------------------------
++ Server Side Request Forgery (SSRF) vulnerabilities let an attacker send crafted requests from the back-end server of a vulnerable web application.
++ SSRF is used to target internal systems behind a firewall and not accessible from external network.
++ Leverage SSRF to access services through 127.0.0.1 of the exploited server.
+
+Business Impact:
++ SSRF that causes connections to external third party systems milght result in malicious onward attacks that appear to originate from the organization hosting the vulnerable application, leading to potential legal liabilities and reputational damage.
+
+Remediation:
++ On application layer - Input validation(whitelisting)
++ On network layer - Firewall to to whitelist routes, network segragation to block illegitimate calls
++ IMDSv2 now requires token to query it.
+
+Insecure Direct Object References
+-----------------------------------
++ IDOR are a type of access control vulnerability that arises when an application uses user-supplied input to access objects directly.
++ IDOR with direct reference to database objects
+	- cust_no example
++ IDOR with direct reference to static files
+
+Remediation:
++ Implement strict access control checks. 
++ Use a salted hash to replace the direct identifier
++ Deny by default
+
+Security Misconfiguration
+-----------------------------
++ Attackers will often attempt to exploit unpatched flaws or access default accounts, unused pages, unprotectedfiles and directories, etc to gain unauthorized access or knowledge of the system.
++ Unneccesary ports oor srvices are enabled.
++ Default credentials are enabled.
++ Error handling reveals a lot of information. 
++ Directory listing is not disabled (LFI)
+
+Business Impact:
++ Complete system compromise
++ Unauthorized access to system data
+
+Remediation:
++ Remove or do not install unnecessary features, components, documentation and samples.
++ Security Headers
+
+
+
+
+
+
+
+
