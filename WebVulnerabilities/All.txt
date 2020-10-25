@@ -142,8 +142,38 @@ Remediation:
 + Remove or do not install unnecessary features, components, documentation and samples.
 + Security Headers
 
+Cross-Site Scripting
+-----------------------------
++ XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user.
++ XSS allows an attacker to masquerade as a victim (access victim data, perform victim actions)
++ Three main types:
+	`Reflected XSS`
+	`Stored XSS`
+	`DOM-based XSS`
++ DOM-based vulnerabilities arise when a website passes data from a source to a sink, which then handles the data in an unsafe way in the context of the client's session.
++ Test for XSS by identifying entry points and submitting simple unique inputs to check if the submitted input is returned in HTTP responses.
 
+Business Impact:
++ If brochureware, then minimal impact since all info is public and users are anon.
++ If application has sensitive data, then serious impact.
++ If compromised user has admin access then critical impact.
 
+Remediation:
++ Never Insert Untrusted Data Except in Allowed Locations (deny all)
++ HTML Encode Before Inserting Untrusted Data into HTML Element Content
++ JavaScript Encode Before Inserting Untrusted Data into JavaScript Data Values
++ CSS Encode And Strictly Validate Before Inserting Untrusted Data into HTML Style Property Values
++ URL Encode Before Inserting Untrusted Data into HTML URL Parameter Values
++ Sanitize HTML Markup with a Library Designed for the Job (like DOMPurify)
++ Use HTTPOnly cookie flag
++ Implement Content Security Policy
+
+CSRF
+-------
+Three things: Relevant action, cookie based session handling, no unpredictable request parameters
+
+Insecure Deserialization
+--------------------------
 
 
 

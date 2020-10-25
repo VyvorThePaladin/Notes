@@ -1,0 +1,210 @@
+List of AWS Security services
+-------------------------------------
++ GuardDuty					+ Artifact 
++ Macie						+ Certificate Manager
++ IAM						+ Security Hub
++ Detective					+ Shield
++ Inspector					+ Firewall Manager 
++ WAF						+ Key Management Service
++ Resource Access Manager		+ Directory Service
++ Secrets Manager			+ Single Sign-On
++ Cognito					+ CloudHSM
+
+GuardDuty
+-------------------------------------
++ Continuous security monitoring service that uses VPC flow logs, VPC DNS logs and CloudTrail logs.
++ Produces security findings that can be viewed in Console or CloudWatch Events.
++ GuardDuty detects compromised IAM users and roles and network resources.
++ Always adding new finding types i.e. detection rules. 
++ It is a regional service.
++ Recon:EC2/PortProbeUnprotectedPort & UnauthorizedAccess:EC2/SSHBruteForce are muted.
++ GuardDuty can be circumvented if attacker uses a different DNS server or if the attacker is using credentials out of AWS IP space (UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration). User agent related API calls.
+
+Macie
+-------------------------------------
++ Macie is a fully managed data security and data privacy service that uses ML and pattern matching.
++ It automates the discovery of sensitive data (PII and financial) in S3. 
++ Its findings can be reviewed in console or processed using other services.
++ attach the AmazonMacieFullAccess managed policy to your IAM identity to enable and use Macie.
+
+ECS, ECR & Fargate
+-------------------------------------
++ ECS Clusters are logical groupings of EC2 instances
++ EC2 already has docker installed
++ /etc/ecs/ecs.config must be configured with cluster name
++ ECS instance is linked to EC2 instance (t2.micro with port 22 open on SG)
++ docker agent registers instance with cluster
++ ECS cluster provisioning also includes auto scaling group (1,0,1)
++ Task definitions tells ECS how to run docker container (json metadata)
++ Tasks can have an IAM role
++ ECS Service defines how many tasks and how they run
++ Can be linked to load balancers
++ Application LB has dynamic port mapping
++ Update services to use new revisions of task definitions
++ ECR is a private Docker image repo with your AWS acc vs the public DockerHub
++ Get ECR access through IAM (aws ecr get-login-password)
++ Fargate is serverless i.e. no need to provision EC2 instances
++ To scale just increase the task number
++ Task placement strategies: binpack (cost-saving), random, spread (evenly distributed across AZ)
++ distinctInstance, memberOf
+
+Terraform
+-------------------------------------
++ Infrastructure as Code to provision cloud resources
++ Uses Hashicorp Configuration Language example: `provider "aws" {}`
++ Scope, Author, Initialize (terraform init), Plan & Apply (`terraform plan`, `terraform apply`)
++ Platform Agnostic, State Management, Operator Confidence
++ .tf files in the working directory are run, output format is similar to git diff format, .tfstate file keeps track of resource IDs
++ Inspect current state using `terraform show`
++ `terraform fmt` automatically formats configurations in the current working directory, Validate using `terraform validate` 
++ Troubleshooting: check regions of AMIs, missing default VPC
++ After changing config, run `terraform apply` again to apply changes
++ `terraform destroy` terminates all resources defined in Terraform configuration
++ `variable "region"{}` in main referenced as `var.region`.
++ CLI options are -var and -var-file (having extension .tfvars or auto.tfvars)
++ Lists and Maps (key-value pairs) can be used for specifying variables.
++ Output variables can be used to query data such as EC2 instance IP
++ Terraform Cloud can remotely store state 
+
+CloudFormation
+-------------------------------------
++ Infrastructure as Code
++ declarative way of outlining your AWS infrastructure
++ Benefits: easy, Cost, Productivity, Separation of concern, reuse
++ Templates are uploaded and pulled from S3
++ Stacks have a name, delete a stack -> deletes everything
++ Components: Resources (EC2, ELB etc), Parameters, Mappings, Outputs, Conditionals, Metadata
++ Helpers: References, Functions
++ Stack creates tags on AWS resources
++ YAML & JSON are supported, YAML has Key value pairs, nested objects, support arrays (-), multi-line string (|), comments (#)
++ Resources are mandatory, they are declared and reference each other
++ 224 resources
++ Parameters are way to provide inputs to the template (!Ref)
++ Mappings are fixed variables, all values are hardcoded
++ !FindInMap [MapName, TopLevelKey, SecondLevelKey]
++ Outputs section is optional, can be exported into other CF templates
++ Best way to perform collaboration cross stack
++ Can't delete a stack if its outputs are referenced somewhere else (Export and !ImportValue)
++ Conditions (!Equals, !And, !If, !Or, !Not)
++ Intrinsic Functions (Ref, GetAtt, FindInMap, ImportValue, Join, Sub)
++ If stack creation fails everything rolls back if stack update fails rollback till latest working state
++ ChangeSets -> what will happen before it happens
++ Nested stacks are stacks as part of other stacks (ELB configs or SG configs reused)
++ StackSets -> create, update, delete stack across multiple accounts and regions
++ Administrator can create StackSets, Trusted Accs can create,delete,update stack instances 
+ 
+Advanced S3 & Athena
+-----------------------
++ MFA-Delete, must first enable Versioning. 
++ Need MFA to perm delete object version and to suspend versioning. 
++ Only bucket owner can enable/disable MFA-Delete
++ Can only be enabled/disabled thru CLI
++ Bucket policies are evaluated before default encryption
++ S3 Access Logs, never set logging bucket to be the monitored bucket
++ Creates a logging loop, and bucket grows in size exponentially
++ S3 Replication, must enable versioning in source and destinaton
++ CRR and SRR (cross-region and same region)
++ Buckets can be in different accs
++ Copying is aynchronous, S3 must have proper permissions
++ Only new objects are replicated
++ DELETE is not replicated
++ Can't chain replication
++ S3 Pre-signed URLs, generate using SDK or CLI
++ default life is 3600 seconds, change with --expires-in argument
++ Users inherit the permissions for GET/PUT of the URL creator
++ `aws configure set default.s3.signature_version s3v4`
++ S3 Storage Classes [S3 Std, S3 Std-IA, S3 One Zone IA, S3 Intelligent Tiering, Glacier, Glacier Deep Archive]
++ S3 Lifecycle Policies -> define transition actions, expiration actions, rules can be created for certain prefix, object tags
++ S3 Baseline Performance has a latency of 100-200 ms by default.
++ SSE-KMS calls GenerateDataKey KMS API during upload
++ and Decrypt KMS API during download
++ If calls exceed KMS quotas the performance is throttled
++ S3 does multi-part upload for > 5GB files
++ S3 Transfer Acceleration helps upload data faster
++ S3 Byter-Range Fetches can be used to speed up downloads
++ S3 Select & Glacier Select, server-side filtering
++ Rules can be created on S3 Event Notifications to automate 
++ Can create as many events as desired
++ Need to enable versioning to setup event notifications
++ Athena -> serverless service to perform analytics directly against S3 files
++ Athena uses SQL to query files and is charged per query
++ S3 Object Lock -> Adopt a WORM model i.e, block object deletion
++ Glacier Vault Lock -> Similar WORM model, no deletion of objects in vault
+
+CloudFront
+------------
++ Its a CDN
++ Improves read performance, cached at edge locations
++ 216+ Points of Presence globally 
++ DDoS protection, integration with AWS Shield
++ Can expose external HTTPS & talk to internal HTTPS backend
++ Origins -> S3 buckets (enhanced security with OAI), Custom Origin (HTTP)
++ Great for static content that must be available everywhere
++ S3 CRR is great for dynamic content that must be available in select regions with low latency
++ Cache based on Headers, Session Cookies and Query String Parameters
++ Cache lives at each CF Edge Location
++ Control TTL from 0 s to 1 yr
++ Invalidate part of cache using CreateInvalidation API
++ CloudFront Geo Restriction -> you can restrict access to CF by using a 3rd party Geo-IP database
++ Viewer Protocol Policy -> Rediect HTTP to HTTPS or use HTTPS only
++ Origin Protocol Policy -> HTTPS Only or Match Viewer
++ S3 bucket websites don't support HTTPS
++ CF Signed URL (gives access to individual file) / Signed Cookies (access to multiple files)
+
+Elastic Beanstalk
+-------------------
++ Platform as a service
++ Managed service
++ Single instance deployment, LB + ASG, ASG only
++ Three components: Application, Application version, Environment name
++ Deployment modes -> Single Instance (great for dev), HA with ELB (great for prod)
++ All at once - deploy all in one go [there's a little downtime]
++ Rolling 
++ Rolling with additional batches
++ Immutable
++ Blue/Green (manual)
++ 'EB cli' makes Beanstalk from CLI easier
++ To deploy describe dependencies, package code + dependencies as zip, upload it and deploy
++ Beanstalk can store 1000 app versions
++ To phase out older versions use  lifecycle policy
++ All parameters set using can be configured with code using files
++ The file must have .ebextensions/ directory in root of source code
++ YAML/JSON format with .config ext
++ EB uses CloudFormation in the background
++ An environment can be cloned with exact configuration
++ After creating EB env, cannot change ELB type [a EB migration must be performed]
++ Beanstalk with HTTPS can be done by loading SSL cert onto the ELB
++ Must configure a SG rule at 443
++ Beanstalk redirect HTTP to HTTPS
++ If your app performs tasks that takes very long to complete, then offload to worker env
++ Decoupling in two tiers is common
++ Define periodic tasks in cron.yaml
++ Custom Platforms can also be created
++ To do so define AMI using Platform.yaml
++ Build platform using Packer software
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
