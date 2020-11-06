@@ -183,15 +183,520 @@ Elastic Beanstalk
 + To do so define AMI using Platform.yaml
 + Build platform using Packer software
 
+AWS CICD
+---------
++ Push code and deploy automatically
++ Automating everything
++ CodeCommit -> store code
++ CodePipeline -> automate pipeline from code to EB
++ CodeBuild -> build and test code
++ CodeDeploy -> deploy code to EC2 fleets
++ Continuos Integration 
+	Push code often to code repo
+	Build server to check code as soon as its pushed
+	Dev gets feedback
++ Continuous Delivery
+	Software release reliably
+	Deployments are quick or often
++ Five steps for CICD
+	Code -> Build -> Test -> Deploy -> Provision
 
+CodeCommit
+-----------
++ Version control is the ability to understand changes over time
++ Git
++ Collaborate, code backups, fully viewable & auditable, rollbacks
++ private Git repos
++ No size limit
++ Fully managed, HA
++ Code only in AWS Cloaud acc
++ Secure and 3rd party CI tools can be used
++ Interactions using Git
++ Authentication in Git using SSH Keys, HTTPS, MFA
++ Authorization in Git using IAM policies
++ Repos are auto encrypted in rest using KMS 
++ Encrypted in transit using HTTPS or SSH
++ Cross Account access using IAM Role and AWS STS (AssumeRole API)
++ You can trigger notifications using SNS or Lambda or AWS CloudWatch Event Rules
 
+CodePipeline
+--------------
++ Visual tool for continuous delivery
++ Source, Build, Load testing, Deploy
++ Made of stages:
+	Each stage has sequential/parallel actions
+	Manual approval can be defined at any stage
++ Each pipeline stage creates artifacts (i.e., files)
++ Artifacts are passed and stored in S3 and passed on to the next stage
++ State changes happen in AWS CloudWatchEvents which inturn create SNS notifications
++ If CodePipeline fails a stage, pipeline stops
++ AWS CloudTrail can audit API calls
++ If Pipeline can't perform an action then problem with the Policy
++ Stages have multiple action groups
 
+CodeBuild
+-----------
++ Building & testing 
++ Fully managed build service
++ Continuous scaling
++ Pay for usage: time taken to complete the build
++ Leverages docker under the hood for reproducilble builds
++ Can extend capabilities using custom base Docker images
++ Integrate with KMS (build artifact encryption), IAM (build permissions), VPC (NetSec), CloudTrail (logging)
++ Source code
++ Build instructions in buildspec.yml file
++ Output logs to S3 and CloudWatch Logs
++ Builds can be defined within CodePipeline or CodeBuild itself
++ buildspec.yml must be at root
++ Define env variables: plaintext or secure secrets using SSM Parameter Store
++ Four phases: Install, Pre build, Build, Post build
++ Artifacts Output saved to S3 and encrypted using KMS
++ Cache: files to cache in S3 for future builds
++ Can run locally
++ CodeBuild containers are launched outside your VPC
++ Can specify VPC configuration to access your resources
 
+CodeDeploy
+-----------
++ Each EC2 machine must be running the CodeDeploy Agent
++ The Agent is continuously polling CodeDeploy
++ CodeDeploy sends appspec.yml
++ App is pulled from Github or S3
++ Can integrate with CodePipeline
++ Blue/Green deployments only works with EC2 
++ Doesn't provision resources
++ Application, Compute platform, Deployment configuration, Deployment group, Deployment Type, IAM instance profile, Application Revision, Service Role, Target revision
++ AppSpec -> File sections (how to source), Hooks (ApplicationStop, DownloadBundle, BeforeInstall, AfterInstall, ApplicationStart, ValidateService) 
++ Deployment Configs -> One at a time, Half at a time, All at once, Custom
++ Failure -> deploys to failed instances first
++ Deployment Targets -> EC2 Instances
 
+CodeStar
+-------------
++ Integrated solution that regroups: Github, CodeCommit, CodeBuild, CodeDeploy, CloudFormation, CodePipeline, CloudWatch
++ Quickly create CICD-ready projects for EC2, lambda, beanstalk
++ issue tracking with JIRA/Github issues
++ Integrate with Cloud9 for web IDE
++ One dashboard to view all components
++ Limited Customization 
 
+Monitoring
+-------------
++ CloudWatch: Metrics, Logs, Events, Alarms
++ X-Ray: Troubleshoot application performance and errors, Distributed tracing of microservices
++ CloudTrail: Audit API calls
++ Metric is a variable to monitor
++ Metrics belongs to namespaces
++ Dimension is an attribute of a metric (10 Dimensions/metric)
++ Metrics have timestamps
++ StorageResolution API for High Resolution
++ PutMetricData API
++ Alarms are used to trigger notifications 
++ Alarm States: OK, INSUFFICIENT_DATA, ALARM
++ Using the SDK application can send logs to CloudWatch
++ CloudWatch can collect logs from a lot of AWS services
++ CloudWatch Agent can be used to push log files to CloudWatch Logs
++ IAM permissions must be correct
++ The agent can be setup for on-prem too
++ Two agents: CloudWatch Logs Agent (old) & Unified Agent (new, more features)
++ Collect CPU (more granular metrics), Disk, RAM, Netstat, Processes, Swap Space
++ CloudWatch Logs can use filter expressions 
++ Look for specific expressions or count stuff and trigger alarms based on a threshold
++ Filters don't retroactively filter data
++ CloudWatch Events: Schedule (cron jobs), Event Pattern, Trigger other services
++ Creates a small JSON doc abotu the change
++ EventBridge is next evolution of CWE
+	Default event bus, Partner event bus, Custom Event buses 
+	Rules
+	Schema Registry
++ EventBridge builds upon and extends CloudWatch Events
 
+X-Ray
+------
++ X-Ray gives visual analysis of our applications
++ Troubleshoot bottlenecks
++ Pinpoint issues
++ Compatible with Lambda, EB, EC2, ELB, API Gateway, custom
++ Tracing is a end to end way to follow a request
++ Tracing is made of segments 
++ Annotations can be added
++ IAM for authorization, KMS for rest
++ Code must import AWS X-Ray SDK -> Install the X-Ray daemon or enable integration
++ Segments, Subsegments, Sampling, Annotations, Metadata
++ Control amount of data sent to X-Ray using Sampling Rules
++ Default is One request per second (reservoir) and following five percent (rate)
++ X-Ray Write APIs: PutTraceSegments, PutTelemetryRecords, GetSamplingRules, GetSamplingTargets, GetSamplingStatisticSummaries
++ X-Ray Read APIs: GetServiceGraph, BatchGetTraces, GetTraceSummaries, GetTraceGraph
++ Integrate X-Ray daemon with Elastic Beanstalk by configuring .ebextensions/xray-daemon.config
++ Integrate ECS with X-Ray: X-Ray Container as a Daemon | as a "Side Car" (ECS Cluster) | as a "Side Car" (Fargate)
++ AWS_XRAY_DAEMON_ADDRESS env var must be set
 
+CloudTrail
+------------
++ CloudTrail provides governance, compliance and audit 
++ Enabled by default
++ If resource is deleted, look into CloudTrail first
 
+Integration & Messaging
+------------------------
++ Synchronous Communication
++ Asynchronous Communication (Event based)
+
+Simple Queuing Service (SQS)
+-----------------------------
++ Producer(s) sends messages to a Queue which are processed by Consumer(s) by polling the queue for messages
++ SQS is the oldest offering
++ Fully managed service, used to decouple applications
++ Unlimited throughput, unlimited no of msgs
++ Default retention is 4 days, max is 14 days
++ Low latency (<10ms)
++ 256KB per message
++ Atleast once delivery
++ Best effort ordering
++ Persists until consumer deletes it
++ SendMessage API 
++ Consumers poll, process and delete messages
++ SQS to decouple between application tiers
++ After a message is polled by a consumer it becomes invisible to other consumers
++ This message visibility timeout is 30 seconds
++ Call the ChangeMessageVisibility API to get more time
++ If a consumer fails to process within the timeout it goes back to the queue
++ We can set a threshold to how many times a msg can go back to queue
++ After MaximumReceives threshold is exceeded the msg is sent to dead letter queue (DLQ)
++ Make sure to set a high retention period for DLQ
++ A delay queue can be setup to delay a message upto 15 mins
++ Override default using DelaySeconds parameter
++ When a consumer polls the queue, it can wait for messages to arrive, this is Long Polling
++ LongPolling decreases no of API calls & increases efficiency & latency
++ wait time is 1s to 20s
++ Recommended to use Long Polling
++ Can be enabled at the queue level or API level using WaitTimeSeconds
++ For large size messages (eg 1 GB), use SQS Extended Client which uses an S3 bucket for the object and small metadata is sent to queue
++ CreateQueue (MessageRetentionQueue), DeleteQueue
++ PurgeQueue
++ SendMessage (DelaySeconds), ReceiveMessage, DeleteMessage
++ ReceiveMessageWaitTimeSeconds
++ ChangeMessageVisibility
++ FIFO queues -> first in first out
++ De-duplication interval is 5 mins
++ Two methods of de-duplications:
+	Content-based (SHA-265 hash of msg body)
+	Explicit Message De-duplication ID
++ Message Grouping using MessageGroupID
+
+Simple Notification Service (SNS)
+----------------------------------
++ Publish to a topic which has many subscribers
++ Event producer (publisher) sends msgs to one SNS topic 
++ Many event receivers (subscribers) subscribe to this topic 
++ SNS + SQS: Fan Out
++ Push once in SNS, receive in all SQS queues that are subscribers
++ Fully decoupled, no data loss
++ data persistence, delayed processing, retries of work 
++ SNS cannot send messages to SQS FIFO queues
++ event type and prefix, only have one S3 Event rule
+
+AWS Kinesis
+-------------
++ managed alternative to Apache Kafka
++ Great for app logs, metrics, IoT, clickstreams
++ real-time big data tool
++ Data is auto replicated in 3 AZs
++ Kinesis Streams, Kinesis Analytics, Kinesis Firehose
++ Streams are divided in ordered Shards/Partitions
++ Data retention is 1 day by default, can go up to 7 days
++ Ability to reprocess/replay data
++ One stream has many shards
++ Shard is a unit of throughput
++ 1MB/s or 1000 msgs/s at write PER SHARD
++ 2MB/s at read PER SHARD
++ Billing is per shard provisioned
++ Batching available
++ Records are ordered per shard
++ ProvisionedThroughputExceed Exceptions 
++ Kinesis Client library (KCL)is a Java lib that helps read record from Kinesis streams with distributed appications sharing the read workload
++ Records are read in order
++ Control access / authorization using IAM policies
++ Encryption in flight using HTTPS endpoints and at rest using KMS 
++ Kinesis data analytics: auto scaling, managed, continuous
++ Pay for actual consumption rate
+
+AWS Lambda
+-----------
++ Serverless -> where you don't have to manage servers anymore
++ Serverless == FaaS (Function as a Service)
++ Virtual functions 
++ Limited by time - short executions
++ Run on-demand
++ Scaling is automated
++ Easy pricing (apy per request and compute time)
++ Integrated with lot of AWS services
++ Easy monitoring with CloudWatch
++ Pay per calls, pay per duration
++ Very cheap to run code on Lambda
++ Synchronous Invocations: CLI, SDK, API Gateway, ALB
++ Synchronous -> User Invoked, Service Invoked
++ To expose Lambda as an HTTP(S) endpoint, use the ALB
++ ALB to Lambda: HTTP to JSON
++ Lambda to ALB: JSON to HTTP
++ ALB Multi-Header Values, both will be converted into an array within the Lambda event
++ Lambda@Edge 
++ Asynchronous Invocations
++ events are placed in an Event Queue
++ Make sure the processing is idempotent
++ S3 Pattern - Metadata Sync
++ Event Source Mapping 
+	Kinesis Data Streams
+	SQS & SQS FIFO Queue
+	DynamoDB Streams
++ Lambda Destinations
+	Send Labda results to a destination
++ Lambda Execution Roles (IAM Role)
++ When you use an event source mapping, Lambda uses the execution role to read event data
++ Lambda Environment Variables = key/value pair in "String" form
++ Helpful to store secrets
++ Lambda execution logs are stored in CloudWatch Logs
++ Can do XRay tracing using Active Tracing
++ AWS_XRAY_DAEMON_ADDRESS
++ By default Lambda is executed outside your VPC in a AWS ownded VPC
++ AWSLambdaVPCAccessExecutionRole
++ Deploying a function in a public subnet doesn't give internet access or public IP
++ Deploy in private subnet then use a NAT gateway for internet
++ Lambda function configuration 
+	RAM(128MB to 3008MB) 
+	more RAM, more vCPU credits 
++ Lambda Execution Context
++ Perform heavy-duty work outside the handler
++ /tmp space if your function needs disk space (max 512MB)
++ Concurrency limit: 1000 concurrent executions
++ Set a reserved concurrency at a function level
++ this will trigger a Throttle
++ Throttle behavior: sync invc ThrottleError - 329, async invc retry automatically, push to DLQ
++ Cold Start: first req has higher latency with the rest
++ Provisioned Concurrency: allocate before invocation
++ Create Lambda function using CloudFormation - inline or through S3
++ Create custom runtimes & externalize dependencies to re-use them using Lambda Layers
++ We start with version $LATEST, Versions are immutatable
++ Aliases are pointers to function versions
++ Aliases are mutable 
++ CodeDeploy helps automate traffic shift for Lambda aliases
++ Feature is integrated within the SAM framework
++ Strategies: Linear, Canary, AllAtOnce
+
+DynamoDB
+----------
++ NoSQL, Serverless, Database
++ NoSQL -> non-relational and distributed
++ Do not support join
++ Scale horizontally 
++ Fully managed, HA with 3 AZ replication
++ Scales to massive workloads
++ millions of requests in seconds, trillions of row, 100s of TB of storage
++ IAM for security
++ made of tables
++ Each table has a primary key 
++ Each table have an infinite no of items (=rows)
++ Each item has attributes
++ Primary Key: Partition Key Only, Partition key + Sort key
++ Table must have provisioned read and write capacity units
++ Read Capacity Units (RCU): throughput for reads
++ Write Capacity Units (WCU): throughput for writes
++ WCU - one write per second for an item upto 1 KB in size
++ by default, DynamoDB is Eventually Consistent Read by can be set to be Strongly Consistent Read
++ RCU - one strongly consistent read per second or two eventually consistent reads per second for an item upto 4KB in size
++ WCU and RCU spread evenly betweeen partitions
++ IF we exceed RCU or WCU we get ProvisionedThroughputExceededException
++ Write APIs: PutItem, UpdateItem, 
++ Delete APIs: DeleteItem, DeleteTable
++ Batching Writes: BatchWriteItem ( upto 25 PutItem / DeleteItem in one call )
++ Read APIs: GetItem ( ProjectionExpression to get only certain attributes ), BatchGetItem
++ Query and scan
++ Local Secondary Index | local to the hash key
++ LSI must be defined at table creation time 
++ Global Secondary Index
++ Conditional Update / Delete | optimistic locking / concurrency
++ DAX = DynamoDB Accelerator
++ Seamless cache for DynamoDB
++ DAX solves the Hot Key problem
++ 5 mins cache TTL by default
++ Multi AZ and Secure
++ Changes end up in DynamoDB Streams 
++ Stream read by AWS Lambda & EC2 Instances and reacted upon
++ 24 hr data retention
++ DynamoDB Streams: KEYS_ONLY, NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES
++ Made of shards just like kinesis, but shards are provisioned by AWS
++ Define an Event Source Mapping, Lambda invoked 
++ TTL is provided at no extra cost
++ Background task operated by the DynamoDB service itself
++ typically deleted within 48 hrs of expiration
++ CLI Parameters:
+	--projection-expression
+	--filter-expression
+	--page-size 
+	--max-items
+	--starting-token
++ DynamoDB Transactions: Create/Update/Delete multiple rows in different tables
++ "all or nothing" type of operation
++ It's common to use DynamoDB to store session state
++ Write Sharding
++ Write Types: Concurrent Writes, Conditional Writes, Atomic writes, Batch Writes
++ Large Objects Pattern
++ Table Cleanup: Scan and Delete, Drop table and Recreate
++ Copying a DynamoDB: Use AWS DataPipeline (uses EMR), Backup and restore, scan & write
++ VPC endpoints available
++ IAM, KMS, SSL/TLS
++ Backup and restore
++ multi region, fully replicated, high performance
+
+API Gateway
+------------
++ Support for WebSocket Protocol
++ No infrastructure to manage
++ Endpoint types: Edge-Optimized, Regional, Private
++ Deployment Stages and stage variables
++ Canary deployments: test a small percentage of the traffic with the new version
++ Integration Types - MOCK, HTTP/AWS, AWS_PROXY
++ Caching API responses 
++ Default TTL is 300 seconds (min: 0, max: 3600s)
++ Cache capacity between 0.5GB to 237GB
++ Caching is expensive
++ API Gateway: Usage Plan, API Keys
++ CloudWatch Logging at the Stage level
++ X-Ray API Gateway + Lambda
++ CloudWatchMetrics: CacheHitCount, CacheMissCount, Count, IntegrationLatency, Latency
++ max amount of time an API gateway can process a request is 29 secs
++ 4XXError (client-side) & 5XXError (server-side)
++ Throttled at 10000 rps
++ 429 Too Many Requests
++ API Gateway supports CORS
++ OPTIONS pre-flight request headers: Access-Control-Allow-Methods, Access-Control-Allow-Headers, Access-Control-Allow-Origin
++ IAM = Authentication | Authorization = IAM Policy
++ Leverage "sig v4" capability where IAM creds are in headers
++ Resource Policies allow you to set a JSON policy 
++ Allow for cross account access
++ Cognito User Pools
++ Lambda Authorizer
++ Can create HTTP, WebSocket, REST and private REST APIs
+
+AWS Serverless Application Model (SAM)
+---------------------------------------
++ framework to develop and deploy serverless applications
++ all config is YAML code
++ generates complex CloudFormation from simple SAM YAML file
++ Transform Header indicates its a SAM template
+	Transform: 'AWS::Serverless-2020-10-31'
++ Write Code
++ Package & deploy
++ SAM Policy Templates: list of templates to apply permissions to Lambda functions
++ S3ReadPolicy, SQSPollerPolicy, DynamoDBCrudPolicy
++ CodeDeploy with SAM to update Lambda functions
++ built on top of CloudFormation
+
+Cognito
+---------
++ Give users an identity to allow interaction with the application
++ Cognito User Pools
++ Cognito Identity Pools (Federated Identities)
++ Cognito User Pools: create a serverless db of users for web and mobile apps
++ simple login, pwd reset, email & ph no verification, MFA, Federated Identities, block compromised creds, login responds with JWT
++ Identity Pools: get identities for "users" so they obtain temporary AWS credentials
++ Default IAM roles for authenticated and guest users
++ Partition users' access using policy variables
++ CUP + CIP = manage user/password + access AWS services
++ Cognito Sync (deprecated) | replaced by AppSync
+
+Step Functions
+---------------
++ Build serverless visual workflow to rchestrate Lambda functions
++ Represent flow as JSON state machine
++ Max execution time is 1 year
++ Human approval feature
++ Retry and Catch
++ Standard and Express types
++ Appsync is a managed service that uses GraphQL
++ GraphQL makes it easy for apps to get exactly the data it needs
++ Retrieve data in real-time with WebSocket or MQTT on WebSocket
++ Just need to upload one GraphQL schema
++ authorize: API_KEY, AWS_IAM, OPENID_CONNECT, AMAZON_COGNITO_USER_POOLS
+
+STS
+----
++ temporary access to AWS resources (upto 1 hour)
++ AssumeRole, AssumeRoleWithSAML, AssumeRoleWithWebIdentity, GetSessionToken,GetFederationToken, GetCallerIdentity, DecodeAuthorizationMessage
++ define an IAM role -> define which principals -> use STS to impersonate the IAM role (AssumeRole) [15 mins to 1 hour]
++ STS with MFA -> GetSessionToken -> IAM Policy -> aws:MultiFactorAuthPresent:true -> token returned
+
+Advanced IAM
+--------------
++ EXPLICIT DENY, EXPLICIT ALLOW, DENY
++ IAM Policies to users,roles,groups U S3 bucket policy to buckets = Total Policy
++ Dynamic Policies by leveraging special policy variable eg. ${aws:username}
++ AWS Managed Policy, Customer Managed Policy, Inline Policy
++ iam:PassRole and iam:GetRole
++ AWS Managed Microsoft AD
++ AD Connector
++ Simple AD 
+
+Encryption
+------------
++ Encryption in flight (SSL)
++ Server side encryption at rest
++ Client side encryption
+
+Key Management Service (KMS)
+-----------------------------
++ Fully integrated with IAM for authorization
++ Seamless integration with a lot of AWS services
++ Customer Master Key (CMK) types
+	Symmetric (AES-256 keys)
+	Asymmetric (RSA & ECC key pairs)
++ Fully manage your keys & audit key usage
++ KMS can encrypt only 4KB of data per call, for >4KB use envelope encryption
++ Key Policy + IAM Policy
++ To use the Envelope Encryption use the GenerateDataKey API
++ Encryption SDK: Data Key Caching (LocalCryptoMaterialsCache)
++ KMS Symmetric APIs: Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, Decrypt, GenerateRandom
++ ThrottlingException, if KMS Request Quotas exceeded. to respond use exponential backoff
++ Can request quota increase using API or support ticket
++ 4 methods of encryption in S3:
+	SSE-S3
+	SSE-KMS
+	SSE-C
+	Client Side Encryption
++ aws:SecureTransport to force SSL
+
+SSM Parameter Store
+--------------------
++ Secure storage for configuration and secrets
++ Versioning 
++ Notifications with CWE 
++ Integration with CloudFormation
++ GetParameters or Get ParametersByPath API
++ Standard and Advanced
++ Policies: TTL to force updation or deletion
+
+Secrets Manager
+----------------
++ Newer  service
++ force rotation of secrets
++ Automate generation of secrets
++ Integration with RDS
+
+Other AWS Services
+-------------------
++ Simple Email Service
+	SMTP interface of AWS SDK
+	S3, SNS, Lambda Integration
++ RDS -> Relational databases, great for OLTP
++ DynamoDB -> NoSQL
++ ElasticCache -> In memory DB
++ Redshift -> great for OLAP 
++ Neptune -> Graph DB
++ Database Migration Service
++ DocumentDB -> managed MongoDB
++ AWS Certificate Manager (ACM)
+	Host public SSL certificates
+	AWS loads SSL certs (ELB,  Cloudfront, APIs)
 
 
 
